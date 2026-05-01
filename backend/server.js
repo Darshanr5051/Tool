@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -177,6 +177,11 @@ app.use('/api/logs', require('./routes/logs'));
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'SIQOL Hardware Inventory API is running' });
+});
+
+// Root route for base URL visits
+app.get('/', (req, res) => {
+  res.send('SIQOL Hardware Inventory API is running. The frontend should connect to /api endpoints.');
 });
 
 const PORT = process.env.PORT || 5000;
