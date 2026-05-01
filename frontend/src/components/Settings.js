@@ -163,25 +163,7 @@ const Settings = ({ sidebarCollapsed, onSetSidebarCollapsed }) => {
               </div>
             </div>
 
-            <div className="setting-row">
-              <div className="setting-left">
-                <div className="setting-icon"><FiSidebar /></div>
-                <div>
-                  <div className="setting-title">Sidebar</div>
-                  <div className="setting-desc">Collapse sidebar by default</div>
-                </div>
-              </div>
-              <div className="setting-right">
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    checked={draft.sidebarCollapsed}
-                    onChange={(e) => setDraft((d) => ({ ...d, sidebarCollapsed: e.target.checked }))}
-                  />
-                  <span className="slider" />
-                </label>
-              </div>
-            </div>
+
 
             <div className="setting-row">
               <div className="setting-left">
