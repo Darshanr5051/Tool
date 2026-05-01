@@ -21,7 +21,7 @@ import {
 } from 'react-icons/fa';
 import './InventoryTable.css';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://dash-tool-hw.netlify.app';
 
 const InventoryTable = ({
   onUpdate,

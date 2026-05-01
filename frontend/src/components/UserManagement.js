@@ -10,7 +10,7 @@ import { SkeletonUserTable, SkeletonCard } from './Skeleton';
 import { useAuth } from '../context/AuthContext';
 import './UserManagement.css';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://dash-tool-hw.netlify.app';
 
 /* ── Helpers ── */
 const getInitials = (name = '') => {
