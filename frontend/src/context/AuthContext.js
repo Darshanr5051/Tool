@@ -7,7 +7,7 @@ const AuthContext = createContext(null);
 // For ngrok: https://YOUR_NGROK_URL/api
 // You can set this in your browser console: localStorage.setItem('API_URL', 'https://YOUR_NGROK_URL/api')
 const getApiUrl = () => {
-  return localStorage.getItem('API_URL') || 'https://dash-tool-hw.netlify.app';
+  return localStorage.getItem('API_URL') || 'https://siqol-backend.onrender.com/api';
 };
 
 const API_URL = getApiUrl();

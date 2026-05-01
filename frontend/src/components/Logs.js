@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { FiFileText, FiClock, FiUser, FiActivity } from 'react-icons/fi';
 import './Logs.css';
 
-const API_URL = 'https://dash-tool-hw.netlify.app';
+const API_URL = 'https://siqol-backend.onrender.com/api';
 
 const Logs = () => {
   const [logs, setLogs] = useState([]);

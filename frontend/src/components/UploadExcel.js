@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { FiUploadCloud, FiFile, FiCheckCircle, FiX, FiInfo, FiZap, FiDownload, FiCopy, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import './UploadExcel.css';
 
-const API_URL = 'https://dash-tool-hw.netlify.app';
+const API_URL = 'https://siqol-backend.onrender.com/api';
 
 const UploadExcel = ({ onUploadSuccess }) => {
   const [file, setFile] = useState(null);

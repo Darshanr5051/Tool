@@ -21,7 +21,7 @@ import {
 } from 'react-icons/fa';
 import './InventoryTable.css';
 
-const API_URL = 'https://dash-tool-hw.netlify.app';
+const API_URL = 'https://siqol-backend.onrender.com/api';
 
 const InventoryTable = ({
   onUpdate,

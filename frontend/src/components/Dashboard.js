@@ -14,7 +14,7 @@ import { SkeletonCard, SkeletonPanel } from './Skeleton';
 import { FiAlertTriangle, FiCheckCircle, FiDownload, FiMonitor, FiPlus, FiXCircle } from 'react-icons/fi';
 import './Dashboard.css';
 
-const API_URL = 'https://dash-tool-hw.netlify.app';
+const API_URL = 'https://siqol-backend.onrender.com/api';
 
 const AnimatedPie = ({ title, stats }) => {
   const entries = Object.entries(stats?.categories || {});

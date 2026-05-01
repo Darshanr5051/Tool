@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { FiCheck, FiX, FiClipboard, FiClock } from 'react-icons/fi';
 import './Requests.css';
 
-const API_URL = 'https://dash-tool-hw.netlify.app';
+const API_URL = 'https://siqol-backend.onrender.com/api';
 
 const Requests = () => {
   const [requests, setRequests] = useState([]);
