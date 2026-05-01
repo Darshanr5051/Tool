@@ -165,25 +165,7 @@ const Settings = ({ sidebarCollapsed, onSetSidebarCollapsed }) => {
 
 
 
-            <div className="setting-row">
-              <div className="setting-left">
-                <div className="setting-icon">A</div>
-                <div>
-                  <div className="setting-title">Reduced Motion</div>
-                  <div className="setting-desc">Minimize animations for accessibility</div>
-                </div>
-              </div>
-              <div className="setting-right">
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    checked={draft.reducedMotion}
-                    onChange={(e) => setDraft((d) => ({ ...d, reducedMotion: e.target.checked }))}
-                  />
-                  <span className="slider" />
-                </label>
-              </div>
-            </div>
+
 
             <div className="setting-row">
               <div className="setting-left">
