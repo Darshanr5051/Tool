@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "username": "Darshan@siqol.com",
+    "password": "$2a$10$G9k1P2V/s9LuMW4bm5v81ux.3QL2xSTVA4tKfWB93asBCrMKER8sK",
+    "fullName": "Darshan Rathod",
+    "email": "Darshan@siqol.com",
+    "role": "admin",
+    "createdAt": "2026-04-23T08:00:37.975Z"
+  },
+  {
+    "id": 3,
+    "username": "Manish@siqol.com",
+    "password": "$2a$10$Ek9ugqwvJsgT89c88k/MbuGRveZmH2ejBo7KSoZ0lBsC0Blj4Uffu",
+    "fullName": "Manish Narani",
+    "email": "Manish@siqol.com",
+    "role": "admin",
+    "createdAt": "2026-04-23T11:08:09.019Z"
+  },
+  {
+    "id": 4,
+    "username": "Bharati@siqol.com",
+    "password": "$2a$10$sFZ1CrNxXPh.H5NEJiZRverR92bILQCEZCmxurW5gZARKIPspw/J.",
+    "fullName": "Bharati Kevalramani",
+    "email": "Bharati@siqol.com",
+    "role": "admin",
+    "createdAt": "2026-04-23T11:08:09.093Z"
+  },
+  {
+    "id": 5,
+    "username": "Dishank@siqol.com",
+    "password": "$2a$10$CORtYRwVruiEIwwDsSKrZeo1jVRj6h2iqRMYY3IDEkWrzJqBbhkUa",
+    "fullName": "Dishank Jogi",
+    "email": "Dishank@siqol.com",
+    "role": "admin",
+    "createdAt": "2026-04-23T11:08:09.163Z"
+  },
+  {
+    "id": 6,
+    "username": "Arjun@siqol.com",
+    "password": "$2a$10$ElvmO7I3aBseaZyUu3XXOO4CQr6d98LSYp7vXNeFwftCsUtGjIF92",
+    "fullName": "Arjun Changala",
+    "email": "Arjun@siqol.com",
+    "role": "user",
+    "createdAt": "2026-04-23T11:08:09.233Z"
+  },
+  {
+    "id": 7,
+    "username": "Pratha@siqol.com",
+    "password": "$2a$10$.RUpmeNpHCacEkiywFg7Qe/Y5CrxaK2V7G8tUzvp0tmX7EjdjfS2K",
+    "fullName": "Pratha Maniar",
+    "email": "Pratha@siqol.com",
+    "role": "user",
+    "createdAt": "2026-04-23T11:08:09.302Z"
+  },
+  {
+    "id": 8,
+    "username": "Yash@siqol.com",
+    "password": "$2a$10$PAbyZWHAgfZXjT.TKTt3PON2N0ncJYaCI8N2.9TnEFkQWWPJvBDjS",
+    "fullName": "Yash Dodiya",
+    "email": "Yash@siqol.com",
+    "role": "user",
+    "createdAt": "2026-04-27T05:45:10.774Z"
+  }
+]

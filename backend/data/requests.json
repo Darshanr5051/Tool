@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "user": "Pratha@siqol.com",
+    "userId": 7,
+    "itemData": {
+      "assetTag": "Test",
+      "deviceName": "Dell Test",
+      "category": "Mouse",
+      "manufacturer": "cjenjnje",
+      "model": "cndjncj",
+      "serialNumber": "cndjcndjc",
+      "status": "Active",
+      "assignedTo": "Pratha",
+      "department": "",
+      "location": "",
+      "purchaseDate": "",
+      "warrantyExpiry": "",
+      "cost": "",
+      "notes": ""
+    },
+    "status": "Rejected",
+    "createdAt": "2026-04-27T06:07:37.661Z",
+    "updatedAt": "2026-04-27T06:12:47.859Z"
+  }
+]

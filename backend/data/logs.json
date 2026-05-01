@@ -1,0 +1,1535 @@
+[
+  {
+    "id": 219,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (USB TTL)",
+    "timestamp": "2026-05-01T08:10:45.982Z"
+  },
+  {
+    "id": 218,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (USB to TTL serial cable)",
+    "timestamp": "2026-05-01T08:10:45.974Z"
+  },
+  {
+    "id": 217,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (USB to RS485 (B))",
+    "timestamp": "2026-05-01T08:10:45.970Z"
+  },
+  {
+    "id": 216,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (USB to Micro C cable)",
+    "timestamp": "2026-05-01T08:10:45.964Z"
+  },
+  {
+    "id": 215,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (USB to Micro B cable)",
+    "timestamp": "2026-05-01T08:10:45.956Z"
+  },
+  {
+    "id": 214,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (USB to Micro A cable)",
+    "timestamp": "2026-05-01T08:10:45.951Z"
+  },
+  {
+    "id": 213,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (USB A to Micro OTG)",
+    "timestamp": "2026-05-01T08:10:45.945Z"
+  },
+  {
+    "id": 212,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (TFT Display)",
+    "timestamp": "2026-05-01T08:10:45.938Z"
+  },
+  {
+    "id": 211,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Test hook clip for Logic analyzer)",
+    "timestamp": "2026-05-01T08:10:45.933Z"
+  },
+  {
+    "id": 210,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Soldering IRON)",
+    "timestamp": "2026-05-01T08:10:45.926Z"
+  },
+  {
+    "id": 209,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Soldering flux)",
+    "timestamp": "2026-05-01T08:10:45.921Z"
+  },
+  {
+    "id": 208,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Soldering coil)",
+    "timestamp": "2026-05-01T08:10:45.916Z"
+  },
+  {
+    "id": 207,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Screw driver kit)",
+    "timestamp": "2026-05-01T08:10:45.909Z"
+  },
+  {
+    "id": 206,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (SD card reader)",
+    "timestamp": "2026-05-01T08:10:45.903Z"
+  },
+  {
+    "id": 205,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Resistor box)",
+    "timestamp": "2026-05-01T08:10:45.896Z"
+  },
+  {
+    "id": 204,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Portronics 4-port USB HUB)",
+    "timestamp": "2026-05-01T08:10:45.890Z"
+  },
+  {
+    "id": 203,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Multimeter)",
+    "timestamp": "2026-05-01T08:10:45.885Z"
+  },
+  {
+    "id": 202,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (MicroSD card Adapter)",
+    "timestamp": "2026-05-01T08:10:45.877Z"
+  },
+  {
+    "id": 201,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Loop power current source simulator)",
+    "timestamp": "2026-05-01T08:10:07.101Z"
+  },
+  {
+    "id": 200,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (LED)",
+    "timestamp": "2026-05-01T08:10:01.455Z"
+  },
+  {
+    "id": 199,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Jumper cable)",
+    "timestamp": "2026-05-01T08:10:01.451Z"
+  },
+  {
+    "id": 198,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (J link Needle Adapter)",
+    "timestamp": "2026-05-01T08:10:01.443Z"
+  },
+  {
+    "id": 197,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (Hot glue gun)",
+    "timestamp": "2026-05-01T08:10:01.438Z"
+  },
+  {
+    "id": 196,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (HDMI Converter (A Conn BLE))",
+    "timestamp": "2026-05-01T08:10:01.431Z"
+  },
+  {
+    "id": 195,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Hardware Inventory (HDMI Cable)",
+    "timestamp": "2026-05-01T08:10:01.424Z"
+  },
+  {
+    "id": 194,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: STM H573I Discovery Kit (H573I-DK)",
+    "timestamp": "2026-05-01T08:07:17.455Z"
+  },
+  {
+    "id": 193,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: STM L4S5 DK (STM-L4S5)",
+    "timestamp": "2026-05-01T08:06:25.985Z"
+  },
+  {
+    "id": 192,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: STM U585 (STM-U585)",
+    "timestamp": "2026-05-01T08:05:08.148Z"
+  },
+  {
+    "id": 191,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: STM Nucleo board (STM32 NUCLEO-G474)",
+    "timestamp": "2026-05-01T08:04:24.122Z"
+  },
+  {
+    "id": 190,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Xilinx Rev 2 board (XLNX-REV)",
+    "timestamp": "2026-05-01T08:03:36.465Z"
+  },
+  {
+    "id": 189,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Sensorkit from 96 board.org (Sensorkit)",
+    "timestamp": "2026-05-01T08:03:03.249Z"
+  },
+  {
+    "id": 188,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Segger (Segger - ARM V9)",
+    "timestamp": "2026-05-01T08:02:34.215Z"
+  },
+  {
+    "id": 187,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: iMX 8 plus EVK board (iMX8-EVKB)",
+    "timestamp": "2026-05-01T08:01:58.067Z"
+  },
+  {
+    "id": 186,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Phone (Redmi Note - Phone)",
+    "timestamp": "2026-05-01T08:01:47.215Z"
+  },
+  {
+    "id": 185,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Laptop (Logic Analyzer)",
+    "timestamp": "2026-05-01T08:01:07.687Z"
+  },
+  {
+    "id": 184,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: MCU-Expresso-FRDM (MCXA152)",
+    "timestamp": "2026-05-01T08:00:48.285Z"
+  },
+  {
+    "id": 183,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: iMX 8 plus EVK board (iMX8-EVKB)",
+    "timestamp": "2026-05-01T08:00:13.591Z"
+  },
+  {
+    "id": 182,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: iPhone X (IPHONE)",
+    "timestamp": "2026-05-01T07:59:32.549Z"
+  },
+  {
+    "id": 181,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 112",
+    "timestamp": "2026-05-01T07:59:04.094Z"
+  },
+  {
+    "id": 180,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Extention board (EXT-BRD)",
+    "timestamp": "2026-05-01T07:58:50.048Z"
+  },
+  {
+    "id": 179,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: ESP 32 Wroom (ESP)",
+    "timestamp": "2026-05-01T07:58:12.432Z"
+  },
+  {
+    "id": 178,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: DC SUPPLY (DC)",
+    "timestamp": "2026-05-01T07:57:55.599Z"
+  },
+  {
+    "id": 177,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Cutter for Wire Cut (CUTTER)",
+    "timestamp": "2026-05-01T07:57:30.507Z"
+  },
+  {
+    "id": 176,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: CAN - OBD Connector (OBD)",
+    "timestamp": "2026-05-01T07:57:06.025Z"
+  },
+  {
+    "id": 175,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Breadboard - white (BRBD)",
+    "timestamp": "2026-05-01T07:56:32.929Z"
+  },
+  {
+    "id": 174,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Beaglebone Black (BBB)",
+    "timestamp": "2026-05-01T07:55:56.433Z"
+  },
+  {
+    "id": 173,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Apollo3 blue plus EVKB (APP-EVKB)",
+    "timestamp": "2026-05-01T07:55:29.350Z"
+  },
+  {
+    "id": 172,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Portronics 4-port USB HUB)",
+    "timestamp": "2026-05-01T07:54:51.322Z"
+  },
+  {
+    "id": 171,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Apollo3 blue plus EVKB)",
+    "timestamp": "2026-05-01T07:54:51.310Z"
+  },
+  {
+    "id": 170,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (STM32 NUCLEO-G474)",
+    "timestamp": "2026-05-01T07:54:51.302Z"
+  },
+  {
+    "id": 169,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (SD card reader)",
+    "timestamp": "2026-05-01T07:54:51.291Z"
+  },
+  {
+    "id": 168,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (CAN - OBD Connector)",
+    "timestamp": "2026-05-01T07:54:51.284Z"
+  },
+  {
+    "id": 167,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Screw driver kit)",
+    "timestamp": "2026-05-01T07:54:51.274Z"
+  },
+  {
+    "id": 166,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Extension board)",
+    "timestamp": "2026-05-01T07:54:51.267Z"
+  },
+  {
+    "id": 165,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Cutter for wire cut)",
+    "timestamp": "2026-05-01T07:54:51.256Z"
+  },
+  {
+    "id": 164,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (LED)",
+    "timestamp": "2026-05-01T07:54:51.247Z"
+  },
+  {
+    "id": 163,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Jumper cable)",
+    "timestamp": "2026-05-01T07:54:51.238Z"
+  },
+  {
+    "id": 162,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Hot glue gun)",
+    "timestamp": "2026-05-01T07:54:51.227Z"
+  },
+  {
+    "id": 161,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Breadboard)",
+    "timestamp": "2026-05-01T07:54:51.220Z"
+  },
+  {
+    "id": 160,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (iPhone 14 Pro - Phone)",
+    "timestamp": "2026-05-01T07:54:51.209Z"
+  },
+  {
+    "id": 159,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (iPhone X - Phone)",
+    "timestamp": "2026-05-01T07:54:51.202Z"
+  },
+  {
+    "id": 158,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Resistor box)",
+    "timestamp": "2026-05-01T07:54:51.191Z"
+  },
+  {
+    "id": 157,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Redmi Note - Phone)",
+    "timestamp": "2026-05-01T07:54:51.183Z"
+  },
+  {
+    "id": 156,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (iMX 8 plus EVK board)",
+    "timestamp": "2026-05-01T07:54:51.173Z"
+  },
+  {
+    "id": 155,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Beaglebone Black)",
+    "timestamp": "2026-05-01T07:54:51.160Z"
+  },
+  {
+    "id": 154,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Multimeter)",
+    "timestamp": "2026-05-01T07:54:51.153Z"
+  },
+  {
+    "id": 153,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (MCU-Expresso-FRDM-MCXA152)",
+    "timestamp": "2026-05-01T07:54:51.142Z"
+  },
+  {
+    "id": 152,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Soldering flux)",
+    "timestamp": "2026-05-01T07:54:51.131Z"
+  },
+  {
+    "id": 151,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Soldering coil)",
+    "timestamp": "2026-05-01T07:54:51.123Z"
+  },
+  {
+    "id": 150,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Soldering IRON)",
+    "timestamp": "2026-05-01T07:54:51.114Z"
+  },
+  {
+    "id": 149,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Segger - ARM V9)",
+    "timestamp": "2026-05-01T07:54:51.105Z"
+  },
+  {
+    "id": 148,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (D.C. supply)",
+    "timestamp": "2026-05-01T07:54:51.093Z"
+  },
+  {
+    "id": 147,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Sensorkit from 96 board.org)",
+    "timestamp": "2026-05-01T07:54:51.078Z"
+  },
+  {
+    "id": 146,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (TFT Display)",
+    "timestamp": "2026-05-01T07:54:51.069Z"
+  },
+  {
+    "id": 145,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (J link Needle Adapter)",
+    "timestamp": "2026-05-01T07:54:51.054Z"
+  },
+  {
+    "id": 144,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (HDMI Converter (A Conn BLE))",
+    "timestamp": "2026-05-01T07:54:51.041Z"
+  },
+  {
+    "id": 143,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (HDMI Cable)",
+    "timestamp": "2026-05-01T07:54:51.034Z"
+  },
+  {
+    "id": 142,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Test hook clip for Logic analyzer)",
+    "timestamp": "2026-05-01T07:54:51.022Z"
+  },
+  {
+    "id": 141,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Xilinx Rev 2 board)",
+    "timestamp": "2026-05-01T07:54:51.010Z"
+  },
+  {
+    "id": 140,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (ESP 32 Wroom)",
+    "timestamp": "2026-05-01T07:54:51.004Z"
+  },
+  {
+    "id": 139,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Loop power current source simulator)",
+    "timestamp": "2026-05-01T07:54:50.994Z"
+  },
+  {
+    "id": 138,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (Logic Analyzer)",
+    "timestamp": "2026-05-01T07:54:50.988Z"
+  },
+  {
+    "id": 137,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (MicroSD card Adapter)",
+    "timestamp": "2026-05-01T07:54:50.980Z"
+  },
+  {
+    "id": 136,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (USB to RS485 (B))",
+    "timestamp": "2026-05-01T07:54:50.971Z"
+  },
+  {
+    "id": 135,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (STM U585 Board)",
+    "timestamp": "2026-05-01T07:54:50.962Z"
+  },
+  {
+    "id": 134,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (USB TTL)",
+    "timestamp": "2026-05-01T07:54:50.954Z"
+  },
+  {
+    "id": 133,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (USB to TTL serial cable)",
+    "timestamp": "2026-05-01T07:54:50.936Z"
+  },
+  {
+    "id": 132,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (USB A to Micro OTG)",
+    "timestamp": "2026-05-01T07:54:50.924Z"
+  },
+  {
+    "id": 131,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (USB to Micro C cable)",
+    "timestamp": "2026-05-01T07:54:50.915Z"
+  },
+  {
+    "id": 130,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (USB to Micro B cable)",
+    "timestamp": "2026-05-01T07:54:50.887Z"
+  },
+  {
+    "id": 129,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (STM L4S5 Board)",
+    "timestamp": "2026-05-01T07:54:50.877Z"
+  },
+  {
+    "id": 128,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (USB to Micro A cable)",
+    "timestamp": "2026-05-01T07:54:50.870Z"
+  },
+  {
+    "id": 127,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (STM32 H573I-DK)",
+    "timestamp": "2026-05-01T07:54:50.857Z"
+  },
+  {
+    "id": 126,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 2 pin Female Housing Connector with 300mm Wire(26 AWG) (XH-A/AW-2.5mm )",
+    "timestamp": "2026-05-01T07:54:04.808Z"
+  },
+  {
+    "id": 125,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 6 pin Wafer Male Connector Through Hole Straight (XH-A-2.5mm )",
+    "timestamp": "2026-05-01T07:53:44.567Z"
+  },
+  {
+    "id": 124,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 4 pin Wafer Male Connector Through Hole Straight (XH-A-2.5mm )",
+    "timestamp": "2026-05-01T07:53:24.420Z"
+  },
+  {
+    "id": 123,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 2 pin Wafer Male Connector Through Hole Straight (XH-A-2.5mm )",
+    "timestamp": "2026-05-01T07:53:05.063Z"
+  },
+  {
+    "id": 122,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 3 pin Female Housing Connector with 300mm Wire(26 AWG) (XH-A/AW-2.5mm )",
+    "timestamp": "2026-05-01T07:52:48.136Z"
+  },
+  {
+    "id": 121,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Arm Cortex-M4 core with DSP and FPU (STM32F407VET6 )",
+    "timestamp": "2026-05-01T07:52:21.041Z"
+  },
+  {
+    "id": 120,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 2.5mm 3 pin Wafer Male Connector DIP Straight (XH-A )",
+    "timestamp": "2026-05-01T07:52:05.502Z"
+  },
+  {
+    "id": 119,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Lithium Polymer Battery Pack (Pro-Range 11.1V 4200mAh 35C 3S )",
+    "timestamp": "2026-05-01T07:51:51.340Z"
+  },
+  {
+    "id": 118,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: High Precision Pressure sensor (MS5611-01BA03 )",
+    "timestamp": "2026-05-01T07:51:35.666Z"
+  },
+  {
+    "id": 117,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 4 pin Female Housing Connector with 300mm Wire(28 AWG) (XH-A/AW-2.5mm )",
+    "timestamp": "2026-05-01T07:51:15.104Z"
+  },
+  {
+    "id": 116,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Replacement Frame Arm(Red) (HMF S550 )",
+    "timestamp": "2026-05-01T07:50:55.298Z"
+  },
+  {
+    "id": 115,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Switch Power Supply Module (HLK-2M05 5V 0.4A )",
+    "timestamp": "2026-05-01T07:50:40.878Z"
+  },
+  {
+    "id": 114,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 935KV Brushless DC Motor for Drone – Red Cap (EMAX MT2213 )",
+    "timestamp": "2026-05-01T07:50:19.160Z"
+  },
+  {
+    "id": 113,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 935KV Brushless DC Motor ? Black Cap (CW Motor Rotation) With Prop1045Combo (EMAX MT2213 )",
+    "timestamp": "2026-05-01T07:50:04.903Z"
+  },
+  {
+    "id": 112,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Buck Converter (BUCK_CONVERTER)",
+    "timestamp": "2026-05-01T07:49:42.757Z"
+  },
+  {
+    "id": 111,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: BLHeli FavouriteLittleBee 30A  (ESC(OPTO) 2-6SLipo)",
+    "timestamp": "2026-05-01T07:49:18.251Z"
+  },
+  {
+    "id": 110,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset:  I2C Interface EEPROM Memory Module (AT24C256)",
+    "timestamp": "2026-05-01T07:49:00.322Z"
+  },
+  {
+    "id": 109,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Adafruit 9-DOF Orientation IMU Fusion Breakout -  (BNO085 (BNO080) - STEMMA QT /Qwiic)",
+    "timestamp": "2026-05-01T07:44:59.608Z"
+  },
+  {
+    "id": 108,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 2.54mm Pitch Plug and Socket with Cable (7 Pin JST XH )",
+    "timestamp": "2026-05-01T07:44:14.196Z"
+  },
+  {
+    "id": 107,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Universal PCB Prototype Board Single-Sided 2.54mm Hole Pitch (5 x 7 cm )",
+    "timestamp": "2026-05-01T07:43:50.432Z"
+  },
+  {
+    "id": 106,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 3DR Radio Telemetry Kit ( 433MHz 500mW)",
+    "timestamp": "2026-05-01T07:43:30.215Z"
+  },
+  {
+    "id": 105,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Single core teflon wire-Red (24AWG )",
+    "timestamp": "2026-05-01T07:43:11.785Z"
+  },
+  {
+    "id": 104,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Single core teflon wire-Black (24AWG )",
+    "timestamp": "2026-05-01T07:42:54.921Z"
+  },
+  {
+    "id": 103,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 6 pin Female Housing Connector with 300mm Wire(26 AWG) (XH-A/AW-2.5mm )",
+    "timestamp": "2026-05-01T07:38:47.678Z"
+  },
+  {
+    "id": 102,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Lipo Voltage Checker 1S-8S with Buzzer Alarm (VOLTAGE CHECKER)",
+    "timestamp": "2026-05-01T07:38:02.624Z"
+  },
+  {
+    "id": 101,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Nylon Flexible Black100Pcs StrapsCable Tie (100 mm X 2.5 mm )",
+    "timestamp": "2026-05-01T07:37:16.926Z"
+  },
+  {
+    "id": 100,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Universal PCB Prototype Board Single-Sided 2.54mm Hole Pitch (9 x 15 cm )",
+    "timestamp": "2026-05-01T07:34:11.739Z"
+  },
+  {
+    "id": 99,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Anti-Vibration Shock Absorber  (APM/KK/MWC/PixHawk)",
+    "timestamp": "2026-05-01T07:33:37.006Z"
+  },
+  {
+    "id": 98,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Arm Cortex-M4 core with DSP and FPU (STM32F407VET6 )",
+    "timestamp": "2026-05-01T07:32:52.525Z"
+  },
+  {
+    "id": 97,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: I/P-MICROCHIP-Operational Amplifier (MCP6002 )",
+    "timestamp": "2026-05-01T07:32:19.347Z"
+  },
+  {
+    "id": 96,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 6CH AFHDS 2A RC Transmitter - Receiver (Flysky FS-i6X 2.4GHz )",
+    "timestamp": "2026-05-01T07:31:43.304Z"
+  },
+  {
+    "id": 95,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Charger/Discharger 1-6 Cells (IMAX B6AC )",
+    "timestamp": "2026-05-01T07:31:09.497Z"
+  },
+  {
+    "id": 94,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: OPTO Electronic Speed Controller (Favorite LittleBee 30A-S )",
+    "timestamp": "2026-05-01T07:30:37.240Z"
+  },
+  {
+    "id": 93,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Nine Axis Sensor Module - BNO085 (BNO080 )",
+    "timestamp": "2026-05-01T07:30:00.354Z"
+  },
+  {
+    "id": 92,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Micro Digital Servo Motor 9G for RC Helicopter Airplane Boat Robot Controls (SG90 )",
+    "timestamp": "2026-05-01T07:29:21.229Z"
+  },
+  {
+    "id": 91,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Male Female Bullet ConnectorPlug For LipoBattery RC DroneFPV Racing MultiRotor (XT60 )",
+    "timestamp": "2026-05-01T07:28:41.929Z"
+  },
+  {
+    "id": 90,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: SmartElex LPS22 Pressure Sensor  (LPS22HB)",
+    "timestamp": "2026-05-01T07:28:02.695Z"
+  },
+  {
+    "id": 89,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: 6-Axis Accelerometer Gyroscope Motion Sensor (6DOF )",
+    "timestamp": "2026-05-01T07:27:25.871Z"
+  },
+  {
+    "id": 88,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Drone (STM32F407VET6 Arm Cortex-M4 core with DSP and FPU)",
+    "timestamp": "2026-05-01T07:26:49.388Z"
+  },
+  {
+    "id": 87,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (HMF S550 Replacement Frame Arm(Red))",
+    "timestamp": "2026-05-01T07:26:07.620Z"
+  },
+  {
+    "id": 86,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (MS5611-01BA03 High Precision Pressure sensor)",
+    "timestamp": "2026-05-01T07:26:07.608Z"
+  },
+  {
+    "id": 85,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (HLK-2M05 5V 0.4A Switch Power Supply Module)",
+    "timestamp": "2026-05-01T07:26:07.585Z"
+  },
+  {
+    "id": 84,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (Buck Converter)",
+    "timestamp": "2026-05-01T07:26:07.571Z"
+  },
+  {
+    "id": 83,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (STM32F407VET6 Arm Cortex-M4 core with DSP and FPU)",
+    "timestamp": "2026-05-01T07:26:07.550Z"
+  },
+  {
+    "id": 82,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (BLHeli FavouriteLittleBee 30A ESC(OPTO) 2-6SLipo)",
+    "timestamp": "2026-05-01T07:26:07.530Z"
+  },
+  {
+    "id": 81,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (7 Pin JST XH 2.54mm Pitch Plug and Socket with Cable)",
+    "timestamp": "2026-05-01T07:26:07.519Z"
+  },
+  {
+    "id": 80,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XH-A-2.5mm-6 pin Wafer Male Connector Through Hole Straight)",
+    "timestamp": "2026-05-01T07:26:07.505Z"
+  },
+  {
+    "id": 79,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XH-A/AW-2.5mm-6 pin Female Housing Connector with 300mm Wire(26 AWG))",
+    "timestamp": "2026-05-01T07:26:07.482Z"
+  },
+  {
+    "id": 78,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XH-A-2.5mm-4 pin Wafer Male Connector Through Hole Straight)",
+    "timestamp": "2026-05-01T07:26:07.472Z"
+  },
+  {
+    "id": 77,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XH-A/AW-2.5mm-4 pin Female Housing Connector with 300mm Wire(28 AWG))",
+    "timestamp": "2026-05-01T07:26:07.456Z"
+  },
+  {
+    "id": 76,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XH-A 2.5mm 3 pin Wafer Male Connector DIP Straight)",
+    "timestamp": "2026-05-01T07:26:07.439Z"
+  },
+  {
+    "id": 75,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XH-A/AW-2.5mm-3 pin Female Housing Connector with 300mm Wire(26 AWG))",
+    "timestamp": "2026-05-01T07:26:07.424Z"
+  },
+  {
+    "id": 74,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XH-A-2.5mm-2 pin Wafer Male Connector Through Hole Straight)",
+    "timestamp": "2026-05-01T07:26:07.401Z"
+  },
+  {
+    "id": 73,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XH-A/AW-2.5mm-2 pin Female Housing Connector with 300mm Wire(26 AWG))",
+    "timestamp": "2026-05-01T07:26:07.380Z"
+  },
+  {
+    "id": 72,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (3DR Radio Telemetry Kit 433MHz 500mW)",
+    "timestamp": "2026-05-01T07:26:07.372Z"
+  },
+  {
+    "id": 71,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (AT24C256 I2C Interface EEPROM Memory Module)",
+    "timestamp": "2026-05-01T07:26:07.357Z"
+  },
+  {
+    "id": 70,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (100 mm X 2.5 mmNylon Flexible Black100Pcs StrapsCable Tie)",
+    "timestamp": "2026-05-01T07:26:07.344Z"
+  },
+  {
+    "id": 69,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (XT60 Male FemaleBullet ConnectorPlug For LipoBattery RC DroneFPV Racing MultiRotor)",
+    "timestamp": "2026-05-01T07:26:07.332Z"
+  },
+  {
+    "id": 68,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) - STEMMA QT /Qwiic)",
+    "timestamp": "2026-05-01T07:26:07.323Z"
+  },
+  {
+    "id": 67,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (24AWG Single core teflon wire-Black)",
+    "timestamp": "2026-05-01T07:26:07.312Z"
+  },
+  {
+    "id": 66,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (24AWG Single core teflon wire-Red)",
+    "timestamp": "2026-05-01T07:26:07.297Z"
+  },
+  {
+    "id": 65,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (Pro-Range 11.1V 4200mAh 35C 3S Lithium Polymer Battery Pack)",
+    "timestamp": "2026-05-01T07:26:07.278Z"
+  },
+  {
+    "id": 64,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (Lipo Voltage Checker 1S-8S with Buzzer Alarm)",
+    "timestamp": "2026-05-01T07:26:07.266Z"
+  },
+  {
+    "id": 63,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (EMAX MT2213 935KV Brushless DC Motor ? Black Cap (CW Motor Rotation) With Prop1045Combo)",
+    "timestamp": "2026-05-01T07:26:07.228Z"
+  },
+  {
+    "id": 62,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (EMAX MT2213 935KV Brushless DC Motor for Drone – Red Cap)",
+    "timestamp": "2026-05-01T07:26:07.175Z"
+  },
+  {
+    "id": 61,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (5 x 7 cm Universal PCB Prototype Board Single-Sided 2.54mm Hole Pitch)",
+    "timestamp": "2026-05-01T07:26:07.159Z"
+  },
+  {
+    "id": 60,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (9 x 15 cm Universal PCB Prototype Board Single-Sided 2.54mm Hole Pitch)",
+    "timestamp": "2026-05-01T07:26:07.134Z"
+  },
+  {
+    "id": 59,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (Anti-Vibration Shock Absorber for APM/KK/MWC/PixHawk)",
+    "timestamp": "2026-05-01T07:26:07.123Z"
+  },
+  {
+    "id": 58,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (STM32F407VET6 Arm Cortex-M4 core with DSP and FPU)",
+    "timestamp": "2026-05-01T07:26:07.097Z"
+  },
+  {
+    "id": 57,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (MCP6002-I/P-MICROCHIP-Operational Amplifier)",
+    "timestamp": "2026-05-01T07:26:07.081Z"
+  },
+  {
+    "id": 56,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (Flysky FS-i6X 2.4GHz 6CH AFHDS 2A RC Transmitter - Receiver)",
+    "timestamp": "2026-05-01T07:26:07.072Z"
+  },
+  {
+    "id": 55,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (IMAX B6AC Charger/Discharger 1-6 Cells)",
+    "timestamp": "2026-05-01T07:26:07.050Z"
+  },
+  {
+    "id": 54,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (Favorite LittleBee 30A-S OPTO Electronic Speed Controller)",
+    "timestamp": "2026-05-01T07:26:07.026Z"
+  },
+  {
+    "id": 53,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (BNO080 Nine Axis Sensor Module - BNO085)",
+    "timestamp": "2026-05-01T07:26:07.015Z"
+  },
+  {
+    "id": 52,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (SG90 Micro Digital Servo Motor 9G for RC Helicopter Airplane Boat Robot Controls)",
+    "timestamp": "2026-05-01T07:26:06.992Z"
+  },
+  {
+    "id": 51,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (SmartElex LPS22 Pressure Sensor LPS22HB)",
+    "timestamp": "2026-05-01T07:26:06.972Z"
+  },
+  {
+    "id": 50,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Drone (6DOF 6-Axis Accelerometer Gyroscope Motion Sensor)",
+    "timestamp": "2026-05-01T07:26:06.895Z"
+  },
+  {
+    "id": 49,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Finger Print Reader (High precision CapacitiveFingerprint Reader (B))",
+    "timestamp": "2026-05-01T07:24:55.526Z"
+  },
+  {
+    "id": 48,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Finger Print sensor (High precision CapacitiveFingerprint Reader (B))",
+    "timestamp": "2026-05-01T07:24:40.838Z"
+  },
+  {
+    "id": 47,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Expansion Board (X-NUCLEO-NFC01A1 )",
+    "timestamp": "2026-05-01T07:24:18.700Z"
+  },
+  {
+    "id": 46,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Smart Card Biometric (High precision CapacitiveFingerprint Reader (B))",
+    "timestamp": "2026-05-01T07:23:42.289Z"
+  },
+  {
+    "id": 45,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Smart Card Biometric (X-NUCLEO-NFC01A1 Expansion Board)",
+    "timestamp": "2026-05-01T07:23:15.413Z"
+  },
+  {
+    "id": 44,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Smart Card Biometric (High precision CapacitiveFingerprint Reader (B))",
+    "timestamp": "2026-05-01T07:23:15.403Z"
+  },
+  {
+    "id": 43,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Home Automation (GAS sensor)",
+    "timestamp": "2026-05-01T07:14:38.530Z"
+  },
+  {
+    "id": 42,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Home Automation (AC Light lamp dimming LED lamp and motor dimmer)",
+    "timestamp": "2026-05-01T07:14:38.526Z"
+  },
+  {
+    "id": 41,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Home Automation (4 Channel Isolated 5V 10A Relay Module opto coupler For Arduino PIC AVR DSP ARM)",
+    "timestamp": "2026-05-01T07:14:38.522Z"
+  },
+  {
+    "id": 40,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 38",
+    "timestamp": "2026-05-01T07:14:22.308Z"
+  },
+  {
+    "id": 39,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 37",
+    "timestamp": "2026-05-01T07:14:22.304Z"
+  },
+  {
+    "id": 38,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 36",
+    "timestamp": "2026-05-01T07:14:22.297Z"
+  },
+  {
+    "id": 37,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Home Automation (GAS sensor)",
+    "timestamp": "2026-05-01T07:11:46.712Z"
+  },
+  {
+    "id": 36,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Home Automation (AC Light lamp dimming LED lamp and motor dimmer)",
+    "timestamp": "2026-05-01T07:11:46.707Z"
+  },
+  {
+    "id": 35,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Home Automation (4 Channel Isolated 5V 10A Relay Module opto coupler For Arduino PIC AVR DSP ARM)",
+    "timestamp": "2026-05-01T07:11:46.693Z"
+  },
+  {
+    "id": 34,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 38",
+    "timestamp": "2026-05-01T07:11:27.226Z"
+  },
+  {
+    "id": 33,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 37",
+    "timestamp": "2026-05-01T07:11:20.762Z"
+  },
+  {
+    "id": 32,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 36",
+    "timestamp": "2026-05-01T07:11:20.757Z"
+  },
+  {
+    "id": 31,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (GAS sensor)",
+    "timestamp": "2026-05-01T07:11:07.737Z"
+  },
+  {
+    "id": 30,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (AC Light lamp dimming LED lamp and motor dimmer)",
+    "timestamp": "2026-05-01T07:11:07.733Z"
+  },
+  {
+    "id": 29,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (4 Channel Isolated 5V 10A Relay Module opto coupler For Arduino PIC AVR DSP ARM)",
+    "timestamp": "2026-05-01T07:11:07.725Z"
+  },
+  {
+    "id": 28,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 38",
+    "timestamp": "2026-05-01T07:10:46.775Z"
+  },
+  {
+    "id": 27,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 37",
+    "timestamp": "2026-05-01T07:10:46.770Z"
+  },
+  {
+    "id": 26,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 39",
+    "timestamp": "2026-05-01T07:10:46.767Z"
+  },
+  {
+    "id": 25,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Deleted",
+    "details": "Admin deleted asset ID: 36",
+    "timestamp": "2026-05-01T07:10:46.763Z"
+  },
+  {
+    "id": 24,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (4 Channel Isolated 5V 10A Relay Module opto coupler For Arduino PIC AVR DSP ARM)",
+    "timestamp": "2026-05-01T07:08:20.254Z"
+  },
+  {
+    "id": 23,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (GAS sensor)",
+    "timestamp": "2026-05-01T06:52:25.496Z"
+  },
+  {
+    "id": 22,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (AC Light lamp dimming LED lamp and motor dimmer)",
+    "timestamp": "2026-05-01T06:52:25.486Z"
+  },
+  {
+    "id": 21,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (4 Channel Isolated 5V 10A Relay Module opto coupler For Arduino PIC AVR DSP ARM)",
+    "timestamp": "2026-05-01T06:52:25.481Z"
+  },
+  {
+    "id": 20,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Headset (HP-9)",
+    "timestamp": "2026-04-27T06:54:16.144Z"
+  },
+  {
+    "id": 19,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Headset (HP-7)",
+    "timestamp": "2026-04-27T06:53:52.056Z"
+  },
+  {
+    "id": 18,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Headset (HP-10)",
+    "timestamp": "2026-04-27T06:51:36.781Z"
+  },
+  {
+    "id": 17,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (HP-10)",
+    "timestamp": "2026-04-27T06:34:33.953Z"
+  },
+  {
+    "id": 16,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (HP-9)",
+    "timestamp": "2026-04-27T06:34:33.948Z"
+  },
+  {
+    "id": 15,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (HP-7)",
+    "timestamp": "2026-04-27T06:34:33.939Z"
+  },
+  {
+    "id": 14,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Headset (HP-3)",
+    "timestamp": "2026-04-27T06:34:05.704Z"
+  },
+  {
+    "id": 13,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Headset (HP-2)",
+    "timestamp": "2026-04-27T06:32:42.269Z"
+  },
+  {
+    "id": 12,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Headset (HP-1)",
+    "timestamp": "2026-04-27T06:32:09.593Z"
+  },
+  {
+    "id": 11,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (HP-3)",
+    "timestamp": "2026-04-27T06:31:25.854Z"
+  },
+  {
+    "id": 10,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (HP-2)",
+    "timestamp": "2026-04-27T06:31:25.845Z"
+  },
+  {
+    "id": 9,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (HP-1)",
+    "timestamp": "2026-04-27T06:31:25.840Z"
+  },
+  {
+    "id": 8,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Dell Keyboard (KB-3)",
+    "timestamp": "2026-04-27T06:29:54.964Z"
+  },
+  {
+    "id": 7,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Dell Keyboard (KB-2)",
+    "timestamp": "2026-04-27T06:29:36.167Z"
+  },
+  {
+    "id": 6,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Updated",
+    "details": "Admin updated asset: Dell Keyboard (KB-1)",
+    "timestamp": "2026-04-27T06:29:06.927Z"
+  },
+  {
+    "id": 5,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (KB-3)",
+    "timestamp": "2026-04-27T06:28:42.600Z"
+  },
+  {
+    "id": 4,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (KB-2)",
+    "timestamp": "2026-04-27T06:28:42.592Z"
+  },
+  {
+    "id": 3,
+    "user": "Darshan@siqol.com",
+    "action": "Asset Added",
+    "details": "Admin added asset: Laptop (KB-1)",
+    "timestamp": "2026-04-27T06:28:42.584Z"
+  },
+  {
+    "id": 2,
+    "user": "Darshan@siqol.com",
+    "action": "Request Rejected",
+    "details": "Rejected asset request #1",
+    "timestamp": "2026-04-27T06:12:47.859Z"
+  },
+  {
+    "id": 1,
+    "user": "Pratha@siqol.com",
+    "action": "Asset Request",
+    "details": "Requested to add asset: Dell Test",
+    "timestamp": "2026-04-27T06:07:37.664Z"
+  }
+]
