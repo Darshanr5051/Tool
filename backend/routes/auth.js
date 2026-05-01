@@ -49,7 +49,8 @@ router.post('/login', async (req, res) => {
       role: user.role
     };
 
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '8h' });
+    const jwtSecret = process.env.JWT_SECRET || 'fallback_siqol_secret_key_123!';
+    const token = jwt.sign(payload, jwtSecret, { expiresIn: '8h' });
 
     res.json({
       token,
