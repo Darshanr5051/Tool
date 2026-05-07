@@ -11,8 +11,32 @@ import Settings from './Settings';
 import Requests from './Requests';
 import Logs from './Logs';
 import { SkeletonCard, SkeletonPanel } from './Skeleton';
-import { FiAlertTriangle, FiCheckCircle, FiDownload, FiMonitor, FiPlus, FiXCircle } from 'react-icons/fi';
+import { FiAlertTriangle, FiCheckCircle, FiDownload, FiMonitor, FiPlus, FiXCircle, FiActivity, FiClock, FiSearch, FiCommand } from 'react-icons/fi';
 import './Dashboard.css';
+
+const useCountUp = (end, duration = 1000) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      // easeOutExpo
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(ease * end));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [end, duration]);
+  return count;
+};
+
+const AnimatedNumber = ({ value }) => {
+  const count = useCountUp(value);
+  return <>{count}</>;
+};
 
 const API_URL = 'https://siqol-backend.onrender.com/api';
 
@@ -89,7 +113,10 @@ const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => localStorage.getItem('siqol_sb') === 'true');
   const [stats, setStats] = useState(null);
+  const [logs, setLogs] = useState([]);
   const [loadingStats, setLoadingStats] = useState(true);
+  const [commandOpen, setCommandOpen] = useState(false);
+  const [commandSearch, setCommandSearch] = useState('');
 
   const exportFilteredRef = useRef(null);
   const [invPreset, setInvPreset] = useState({ search: '', status: '', category: '', addId: 0 });
@@ -97,10 +124,14 @@ const Dashboard = () => {
   const fetchStats = useCallback(async () => {
     try {
       setLoadingStats(true);
-      const res = await axios.get(`${API_URL}/inventory/stats`);
-      setStats(res.data);
+      const [statsRes, logsRes] = await Promise.all([
+        axios.get(`${API_URL}/inventory/stats`),
+        axios.get(`${API_URL}/logs`)
+      ]);
+      setStats(statsRes.data);
+      setLogs(logsRes.data.slice(0, 5)); // Keep only 5 recent logs for the dashboard
     } catch (e) {
-      toast.error('Failed to load dashboard stats');
+      toast.error('Failed to load dashboard data');
     } finally {
       setLoadingStats(false);
     }
@@ -166,11 +197,19 @@ const Dashboard = () => {
       const isTypingTarget = isInput(t) || isInput(active);
       if (isTypingTarget) return;
 
-      if (e.key === 'Escape' && sidebarOpen) setSidebarOpen(false);
+      if (e.key === 'Escape') {
+        if (commandOpen) setCommandOpen(false);
+        else if (sidebarOpen) setSidebarOpen(false);
+      }
 
-      if (e.shiftKey && e.key === '/') {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
-        toast.info('Shortcuts: / search, n new asset, g+o/i/u navigate, ? help', { autoClose: 6000 });
+        setCommandOpen((prev) => !prev);
+      }
+
+      if (e.shiftKey && e.key === '?') {
+        e.preventDefault();
+        toast.info('Shortcuts: Ctrl+K palette, / search, n new asset, g+o/i/u navigate', { autoClose: 6000 });
       }
 
       if (e.key === 'n') {
@@ -267,7 +306,7 @@ const Dashboard = () => {
                     <span className="stat-label">{s.label}</span>
                     <div className={`stat-icon-box ${s.color}`}><Icon /></div>
                   </div>
-                  <div className="stat-value">{s.value}</div>
+                  <div className="stat-value"><AnimatedNumber value={s.value} /></div>
                 </div>
               );
             })}
@@ -302,6 +341,35 @@ const Dashboard = () => {
                 ) : (
                   <p className="empty-text">No data</p>
                 )}
+              </div>
+            </div>
+
+            <div className={`panel timeline-panel ${overviewAnimate ? 'is-animate' : ''}`}>
+              <div className="panel-head">
+                <h3 className="panel-title">Recent Activity</h3>
+              </div>
+              <div className="panel-body">
+                {logs.length > 0 ? (
+                  <div className="activity-timeline">
+                    {logs.map((log) => (
+                      <div key={log.id} className="timeline-item">
+                        <div className="timeline-icon"><FiActivity /></div>
+                        <div className="timeline-content">
+                          <div className="timeline-title">{log.action}</div>
+                          <div className="timeline-desc">{log.details}</div>
+                          <div className="timeline-meta">
+                            <FiClock /> {new Date(log.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} by {log.user}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="empty-text">No recent activity</p>
+                )}
+                <button className="btn btn-outline full-width" onClick={() => setActiveTab('logs')} style={{ marginTop: '14px' }}>
+                  View All Logs
+                </button>
               </div>
             </div>
           </div>
@@ -359,6 +427,45 @@ const Dashboard = () => {
         <Navbar onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} onGlobalSearch={handleGlobalSearch} />
         <div className="content">{renderContent()}</div>
       </div>
+
+      {/* Command Palette Overlay */}
+      {commandOpen && (
+        <div className="command-overlay" onClick={() => setCommandOpen(false)}>
+          <div className="command-palette" onClick={(e) => e.stopPropagation()}>
+            <div className="command-header">
+              <FiSearch className="command-icon" />
+              <input 
+                autoFocus 
+                placeholder="Search actions, assets, or navigation..." 
+                value={commandSearch}
+                onChange={(e) => setCommandSearch(e.target.value)}
+              />
+              <div className="command-badge">ESC</div>
+            </div>
+            <div className="command-body">
+              <div className="command-section">Quick Navigation</div>
+              <div className="command-item" onClick={() => { setActiveTab('overview'); setCommandOpen(false); }}>
+                <FiMonitor /> Go to Dashboard
+              </div>
+              <div className="command-item" onClick={() => { openInventory({}); setCommandOpen(false); }}>
+                <FiCommand /> View Inventory
+              </div>
+              {isAdmin() && (
+                <div className="command-item" onClick={() => { setActiveTab('users'); setCommandOpen(false); }}>
+                  <FiCommand /> Manage Users
+                </div>
+              )}
+              <div className="command-section">Actions</div>
+              <div className="command-item" onClick={() => { handleQuickAdd(); setCommandOpen(false); }}>
+                <FiPlus /> Add New Asset
+              </div>
+              <div className="command-item" onClick={() => { handleExport(); setCommandOpen(false); }}>
+                <FiDownload /> Export Data
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
