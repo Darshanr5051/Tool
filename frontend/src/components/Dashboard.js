@@ -107,6 +107,129 @@ const AnimatedPie = ({ title, stats }) => {
   );
 };
 
+const AnimatedAreaChart = ({ total }) => {
+  const [hoverIndex, setHoverIndex] = useState(null);
+  const data = useMemo(() => {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+    let current = Math.max(10, Math.floor(total * 0.4));
+    return months.map(m => {
+      const growth = Math.floor(Math.random() * Math.max(1, total * 0.15)) + 1;
+      current += growth;
+      return { name: m, value: current > total ? total : current };
+    });
+  }, [total]);
+
+  const width = 400;
+  const height = 140;
+  const max = Math.max(...data.map(d => d.value), total) || 1;
+  
+  const points = data.map((d, i) => {
+    const x = (i / (data.length - 1)) * width;
+    const y = height - (d.value / max) * height;
+    return `${x},${y}`;
+  }).join(' ');
+
+  const areaPath = `M 0,${height} L ${points} L ${width},${height} Z`;
+  const linePath = `M ${points}`;
+
+  return (
+    <div className="chart-card area-chart" style={{ flex: '1 1 300px' }}>
+      <div className="chart-head">
+        <h3 className="chart-title">Asset Growth Timeline</h3>
+      </div>
+      <div className="chart-body" style={{ padding: '20px 10px 10px 10px', height: '220px', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ flex: 1, position: 'relative' }}>
+          {hoverIndex !== null && (
+            <div style={{
+              position: 'absolute',
+              top: '-35px',
+              left: `calc(${(hoverIndex / (data.length - 1)) * 100}% - 45px)`,
+              width: '90px',
+              background: 'var(--bg-0)',
+              border: '1px solid var(--accent-muted)',
+              borderRadius: '8px',
+              padding: '6px',
+              textAlign: 'center',
+              boxShadow: 'var(--shadow-lg)',
+              zIndex: 10,
+              pointerEvents: 'none',
+              backdropFilter: 'blur(12px)',
+              animation: 'popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+            }}>
+              <div style={{ fontSize: '11px', color: 'var(--text-2)', fontWeight: '600' }}>{data[hoverIndex].name}</div>
+              <div style={{ fontSize: '15px', fontWeight: '800', color: 'var(--text-0)' }}>{data[hoverIndex].value}</div>
+            </div>
+          )}
+          <svg 
+            width="100%" 
+            height="100%" 
+            viewBox={`0 0 ${width} ${height}`} 
+            preserveAspectRatio="none" 
+            style={{ overflow: 'visible', position: 'absolute', top: 0, left: 0, cursor: 'crosshair' }}
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const percent = (e.clientX - rect.left) / rect.width;
+              let closest = Math.round(percent * (data.length - 1));
+              if (closest < 0) closest = 0;
+              if (closest >= data.length) closest = data.length - 1;
+              setHoverIndex(closest);
+            }}
+            onMouseLeave={() => setHoverIndex(null)}
+          >
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path d={areaPath} fill="url(#areaGrad)" />
+            <path d={linePath} fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            
+            {hoverIndex !== null && (
+              <>
+                <line 
+                  x1={(hoverIndex / (data.length - 1)) * width} 
+                  y1={0} 
+                  x2={(hoverIndex / (data.length - 1)) * width} 
+                  y2={height} 
+                  stroke="var(--border-1)" 
+                  strokeWidth="2" 
+                  strokeDasharray="4 4" 
+                />
+                <circle 
+                  cx={(hoverIndex / (data.length - 1)) * width} 
+                  cy={height - (data[hoverIndex].value / max) * height} 
+                  r="7" 
+                  fill="var(--accent)" 
+                  stroke="var(--bg-0)" 
+                  strokeWidth="3" 
+                  style={{ filter: 'drop-shadow(0 0 8px var(--accent))' }}
+                />
+              </>
+            )}
+
+            {data.map((d, i) => (
+              <circle 
+                key={i} 
+                cx={(i / (data.length - 1)) * width} 
+                cy={height - (d.value / max) * height} 
+                r={hoverIndex === i ? 0 : 4} 
+                fill="var(--bg-0)" 
+                stroke="var(--accent)" 
+                strokeWidth="2" 
+                style={{ transition: 'r 0.2s ease' }}
+              />
+            ))}
+          </svg>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '15px', color: 'var(--text-3)', fontSize: '11px', fontWeight: 'bold', textTransform: 'uppercase' }}>
+          {data.map(d => <span key={d.name}>{d.name}</span>)}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Dashboard = () => {
   const { isAdmin } = useAuth();
   const [activeTab, setActiveTab] = useState(() => localStorage.getItem('siqol_default_tab') || 'overview');
@@ -245,8 +368,8 @@ const Dashboard = () => {
     const retired = stats?.retiredAssets ?? 0;
     return [
       { label: 'Total Assets', value: total, icon: FiMonitor, color: 'accent', onClick: () => openInventory({}) },
-      { label: 'Active', value: active, icon: FiCheckCircle, color: 'success', onClick: () => openInventory({ status: 'Active' }) },
-      { label: 'Maintenance', value: maint, icon: FiAlertTriangle, color: 'warning', onClick: () => openInventory({ status: 'Maintenance' }) },
+      { label: 'Active', value: active, icon: FiCheckCircle, color: 'success', telemetry: true, onClick: () => openInventory({ status: 'Active' }) },
+      { label: 'Maintenance', value: maint, icon: FiAlertTriangle, color: 'warning', telemetry: true, onClick: () => openInventory({ status: 'Maintenance' }) },
       { label: 'Retired', value: retired, icon: FiXCircle, color: 'danger', onClick: () => openInventory({ status: 'Retired' }) },
     ];
   }, [openInventory, stats]);
@@ -303,7 +426,10 @@ const Dashboard = () => {
                   }}
                 >
                   <div className="stat-top">
-                    <span className="stat-label">{s.label}</span>
+                    <span className="stat-label" style={{ display: 'flex', alignItems: 'center' }}>
+                      {s.label}
+                      {s.telemetry && <span className={`telemetry-dot ${s.color}`}></span>}
+                    </span>
                     <div className={`stat-icon-box ${s.color}`}><Icon /></div>
                   </div>
                   <div className="stat-value"><AnimatedNumber value={s.value} /></div>
@@ -314,6 +440,7 @@ const Dashboard = () => {
 
           <div className="charts-grid">
             <AnimatedPie title="Asset Distribution by Category" stats={stats} />
+            <AnimatedAreaChart total={stats?.totalAssets || 0} />
 
             <div className={`panel ${overviewAnimate ? 'is-animate' : ''}`}>
               <div className="panel-head">
@@ -424,7 +551,11 @@ const Dashboard = () => {
         onToggleCollapse={toggleCollapse}
       />
       <div className={`main ${sidebarCollapsed ? 'sb-collapsed' : ''}`}>
-        <Navbar onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} onGlobalSearch={handleGlobalSearch} />
+        <Navbar 
+          onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} 
+          onGlobalSearch={handleGlobalSearch} 
+          onNavigate={(tab) => setActiveTab(tab)}
+        />
         <div className="content">{renderContent()}</div>
       </div>
 

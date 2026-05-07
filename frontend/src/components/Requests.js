@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { FiCheck, FiX, FiClipboard, FiClock } from 'react-icons/fi';
+import { FiCheck, FiX, FiClipboard, FiClock, FiUser, FiTag, FiFolder, FiMessageSquare } from 'react-icons/fi';
 import './Requests.css';
 
 const API_URL = 'https://siqol-backend.onrender.com/api';
@@ -60,16 +60,39 @@ const Requests = () => {
           requests.map(req => (
             <div key={req.id} className={`req-card ${req.status.toLowerCase()}`}>
               <div className="req-info">
-                <h4>{req.itemData.deviceName || 'Unknown Device'}</h4>
-                <div className="req-meta">
-                  <span><strong>Requested by:</strong> {req.user}</span>
-                  <span><FiClock /> {new Date(req.createdAt).toLocaleString()}</span>
-                  <span><strong>Status:</strong> <span className={`req-status-badge ${req.status.toLowerCase()}`}>{req.status}</span></span>
+                <div className="req-card-header">
+                  <div className="req-title-wrapper">
+                    <div className="req-avatar">
+                      {req.user ? req.user.charAt(0).toUpperCase() : 'U'}
+                    </div>
+                    <div>
+                      <h4 className="req-device-name">{req.itemData.deviceName || 'Unknown Device'}</h4>
+                      <div className="req-requester">{req.user}</div>
+                    </div>
+                  </div>
+                  <div className={`req-status-pill ${req.status.toLowerCase()}`}>
+                    <span className="status-dot"></span>
+                    {req.status}
+                  </div>
                 </div>
-                <div className="req-details">
-                  <p><strong>Category:</strong> {req.itemData.category || 'N/A'}</p>
-                  <p><strong>Asset Tag:</strong> {req.itemData.assetTag || 'N/A'}</p>
-                  <p><strong>Notes:</strong> {req.itemData.notes || 'N/A'}</p>
+
+                <div className="req-meta-top">
+                  <span className="req-time"><FiClock /> {new Date(req.createdAt).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}</span>
+                </div>
+
+                <div className="req-details-grid">
+                  <div className="detail-item">
+                    <div className="detail-label"><FiFolder /> Category</div>
+                    <div className="detail-value">{req.itemData.category || 'N/A'}</div>
+                  </div>
+                  <div className="detail-item">
+                    <div className="detail-label"><FiTag /> Asset Tag</div>
+                    <div className="detail-value">{req.itemData.assetTag || 'N/A'}</div>
+                  </div>
+                  <div className="detail-item notes-item">
+                    <div className="detail-label"><FiMessageSquare /> Notes</div>
+                    <div className="detail-value">{req.itemData.notes || 'N/A'}</div>
+                  </div>
                 </div>
               </div>
               {req.status === 'Pending' && (

@@ -18,6 +18,38 @@ const Login = () => {
   const { login, user } = useAuth();
   const navigate = useNavigate();
   const canvasRef = useRef(null);
+  const cardRef = useRef(null);
+
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good morning';
+    if (hour < 18) return 'Good afternoon';
+    return 'Good evening';
+  };
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Calculate rotation (-10 to 10 degrees)
+    const rotateX = ((y - centerY) / centerY) * -10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.transition = 'none';
+  };
+
+  const handleMouseLeave = () => {
+    if (!cardRef.current) return;
+    const card = cardRef.current;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+  };
 
   /* ── Canvas circuit board ── */
   useEffect(() => {
@@ -27,6 +59,18 @@ const Login = () => {
     let animId;
     const CELL = 55;
     let nodes = [], traces = [], pulses = [];
+    
+    let mouse = { x: -1000, y: -1000 };
+    const handleMouseMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+    const handleMouseLeave = () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
 
     const initCircuit = () => {
       nodes = []; traces = []; pulses = [];
@@ -36,7 +80,13 @@ const Login = () => {
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const active = Math.random() > 0.48;
-          const node = { x: c * CELL, y: r * CELL, active, pulse: Math.random() * Math.PI * 2, speed: 0.016 + Math.random() * 0.014 };
+          const node = { 
+            baseX: c * CELL, baseY: r * CELL, 
+            x: c * CELL, y: r * CELL, 
+            active, 
+            pulse: Math.random() * Math.PI * 2, 
+            speed: 0.016 + Math.random() * 0.014 
+          };
           map.set(`${c},${r}`, node);
           if (active) nodes.push(node);
         }
@@ -46,8 +96,8 @@ const Login = () => {
         const [c, r] = key.split(',').map(Number);
         const right = map.get(`${c + 1},${r}`);
         const down = map.get(`${c},${r + 1}`);
-        if (right?.active && Math.random() > 0.28) traces.push({ x1: node.x, y1: node.y, x2: right.x, y2: right.y });
-        if (down?.active && Math.random() > 0.28) traces.push({ x1: node.x, y1: node.y, x2: down.x, y2: down.y });
+        if (right?.active && Math.random() > 0.28) traces.push({ n1: node, n2: right });
+        if (down?.active && Math.random() > 0.28) traces.push({ n1: node, n2: down });
       });
       const n = Math.max(10, Math.floor(traces.length * 0.13));
       for (let i = 0; i < n; i++) {
@@ -63,7 +113,6 @@ const Login = () => {
     };
 
     const draw = () => {
-      /* read theme live on every frame — switches instantly when toggled */
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
       const nodeR      = isLight ? '85,109,247'             : '0,229,255';
       const pulseCore  = isLight ? '#556df7'                : '#00e5ff';
@@ -72,10 +121,32 @@ const Login = () => {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      /* interact nodes with mouse */
+      nodes.forEach(node => {
+        const dx = mouse.x - node.baseX;
+        const dy = mouse.y - node.baseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const maxDist = 120;
+        
+        if (dist < maxDist) {
+          const force = (maxDist - dist) / maxDist;
+          node.x = node.baseX - (dx * force * 0.4);
+          node.y = node.baseY - (dy * force * 0.4);
+        } else {
+          node.x += (node.baseX - node.x) * 0.1;
+          node.y += (node.baseY - node.y) * 0.1;
+        }
+      });
+
       /* traces */
-      ctx.strokeStyle = isLight ? 'rgba(85,109,247,0.10)' : 'rgba(0,229,255,0.10)';
+      ctx.strokeStyle = isLight ? 'rgba(85,109,247,0.15)' : 'rgba(0,229,255,0.15)';
       ctx.lineWidth = 1;
-      traces.forEach(t => { ctx.beginPath(); ctx.moveTo(t.x1, t.y1); ctx.lineTo(t.x2, t.y2); ctx.stroke(); });
+      traces.forEach(t => { 
+        ctx.beginPath(); 
+        ctx.moveTo(t.n1.x, t.n1.y); 
+        ctx.lineTo(t.n2.x, t.n2.y); 
+        ctx.stroke(); 
+      });
 
       /* nodes */
       nodes.forEach(node => {
@@ -92,8 +163,8 @@ const Login = () => {
       pulses.forEach(p => {
         p.progress += p.speed;
         if (p.progress > 1) p.progress = 0;
-        const x = p.trace.x1 + (p.trace.x2 - p.trace.x1) * p.progress;
-        const y = p.trace.y1 + (p.trace.y2 - p.trace.y1) * p.progress;
+        const x = p.trace.n1.x + (p.trace.n2.x - p.trace.n1.x) * p.progress;
+        const y = p.trace.n1.y + (p.trace.n2.y - p.trace.n1.y) * p.progress;
         const g = ctx.createRadialGradient(x, y, 0, x, y, 12);
         g.addColorStop(0, pulseStop0); g.addColorStop(0.35, pulseStop1); g.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.beginPath(); ctx.arc(x, y, 12, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
@@ -106,7 +177,12 @@ const Login = () => {
     resize();
     draw();
     window.addEventListener('resize', resize);
-    return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize); };
+    return () => { 
+      cancelAnimationFrame(animId); 
+      window.removeEventListener('resize', resize);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, []);
 
   useEffect(() => { if (user) navigate('/dashboard'); }, [user, navigate]);
@@ -156,7 +232,13 @@ const Login = () => {
         <ThemeToggle />
       </div>
 
-      <div className="login-box">
+      <div 
+        className="login-box" 
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
+      >
         {/* System tag */}
 
         {/* Logo */}
@@ -171,7 +253,8 @@ const Login = () => {
           ) : (
             <div className="login-logo-mark">S</div>
           )}
-          <h1 className="login-logo-text">Hardware Inventory Tool</h1>
+          <h1 className="login-logo-text" style={{ transform: 'translateZ(30px)' }}>{getGreeting()}</h1>
+          <p className="login-logo-sub" style={{ transform: 'translateZ(20px)' }}>Hardware Inventory Portal</p>
         </div>
 
         {/* Form */}

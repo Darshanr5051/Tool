@@ -2,16 +2,15 @@
    KEYFRAMES
 ═══════════════════════════════════════════════ */
 
-/* Page-level fade in */
 @keyframes page-fade-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(16px) scale(0.98);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -176,11 +175,11 @@
 .content {
   flex: 1;
   padding: 24px;
-  animation: page-fade-in 0.4s ease both;
+  animation: page-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .overview {
-  animation: page-fade-in 0.35s ease both;
+  animation: page-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 
@@ -394,6 +393,30 @@
     transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.2s ease;
   animation: card-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Holographic Glare */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.stat-card:hover::before {
+  animation: shine 0.7s;
+}
+
+@keyframes shine {
+  100% { left: 150%; }
 }
 
 .stat-card:nth-child(1) {
@@ -1125,3 +1148,37 @@
 .command-item.active svg {
   color: var(--accent);
 }
+
+/* ═══════════════════════════════════════════════
+   TELEMETRY DOTS
+═══════════════════════════════════════════════ */
+
+.telemetry-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 10px;
+  position: relative;
+  top: -1px;
+}
+
+.telemetry-dot::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  opacity: 0.8;
+  animation: telemetry-ring 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes telemetry-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+.telemetry-dot.success { background: var(--success); color: var(--success); }
+.telemetry-dot.warning { background: var(--warning); color: var(--warning); }
+.telemetry-dot.danger { background: var(--danger); color: var(--danger); }
+.telemetry-dot.accent { background: var(--accent); color: var(--accent); }

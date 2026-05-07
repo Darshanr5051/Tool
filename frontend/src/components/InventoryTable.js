@@ -5,7 +5,8 @@ import { toast } from 'react-toastify';
 import * as XLSX from 'xlsx';
 import {
   FiSearch, FiFilter, FiEdit2, FiTrash2, FiPlus, FiX, FiSave,
-  FiChevronLeft, FiChevronRight, FiMonitor, FiDatabase, FiArrowUp, FiArrowDown
+  FiChevronLeft, FiChevronRight, FiMonitor, FiDatabase, FiArrowUp, FiArrowDown,
+  FiDownload
 } from 'react-icons/fi';
 import {
   FaLaptop,
@@ -18,6 +19,7 @@ import {
   FaServer,
   FaCamera,
   FaBoxOpen,
+  FaQrcode,
 } from 'react-icons/fa';
 import './InventoryTable.css';
 
@@ -44,6 +46,7 @@ const InventoryTable = ({
   const [laptopImportText, setLaptopImportText] = useState('');
   const [laptopImportCategory, setLaptopImportCategory] = useState('');
   const [importingLaptop, setImportingLaptop] = useState(false);
+  const [showQR, setShowQR] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortColumn, setSortColumn] = useState('assetTag');
   const [sortDirection, setSortDirection] = useState('asc');
@@ -55,8 +58,28 @@ const InventoryTable = ({
     return Number.isFinite(itemsPerPageRaw) && itemsPerPageRaw > 0 ? itemsPerPageRaw : 10;
   });
 
+  const allColumns = [
+    { id: 'assetTag', label: 'ASSET TAG' },
+    { id: 'deviceName', label: 'DEVICE' },
+    { id: 'category', label: 'CATEGORY' },
+    { id: 'manufacturer', label: 'MANUFACTURER' },
+    { id: 'status', label: 'STATUS' },
+    { id: 'assignedTo', label: 'ASSIGNED TO' },
+    { id: 'department', label: 'DEPARTMENT' },
+  ];
+  
+  const [visibleCols, setVisibleCols] = useState(() => {
+    const saved = localStorage.getItem('siqol_cols');
+    return saved ? JSON.parse(saved) : allColumns.map(c => c.id);
+  });
+  const [showColMenu, setShowColMenu] = useState(false);
+  const colMenuRef = React.useRef(null);
+
   const [users, setUsers] = useState([]);
   const [isOtherAssignee, setIsOtherAssignee] = useState(false);
+
+  // Inline editing state
+  const [inlineEdit, setInlineEdit] = useState({ id: null, field: null, value: '' });
 
   const [formData, setFormData] = useState({
     assetTag: '', deviceName: '', category: '', manufacturer: '',
@@ -88,6 +111,20 @@ const InventoryTable = ({
   useEffect(() => {
     localStorage.setItem('siqol_rows_per_page', String(itemsPerPage));
   }, [itemsPerPage]);
+
+  useEffect(() => {
+    localStorage.setItem('siqol_cols', JSON.stringify(visibleCols));
+  }, [visibleCols]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (colMenuRef.current && !colMenuRef.current.contains(event.target)) {
+        setShowColMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const fetchInventory = async () => {
     try {
@@ -399,6 +436,60 @@ const InventoryTable = ({
     } catch (err) { toast.error(err.response?.data?.message || 'Operation failed'); }
   };
 
+  const handleDoubleClick = (item, field) => {
+    if (!isAdmin()) return;
+    setInlineEdit({ id: item.id, field, value: item[field] || '' });
+  };
+
+  const handleInlineSave = async () => {
+    if (!inlineEdit.id || !inlineEdit.field) return;
+    
+    const originalItem = inventory.find(i => i.id === inlineEdit.id);
+    if (originalItem && originalItem[inlineEdit.field] === inlineEdit.value) {
+      setInlineEdit({ id: null, field: null, value: '' });
+      return;
+    }
+
+    try {
+      await axios.put(`${API_URL}/inventory/${inlineEdit.id}`, { [inlineEdit.field]: inlineEdit.value });
+      toast.success('Updated successfully');
+      setInlineEdit({ id: null, field: null, value: '' });
+      fetchInventory();
+      if (onUpdate) onUpdate();
+    } catch (err) {
+      toast.error('Failed to update inline');
+      setInlineEdit({ id: null, field: null, value: '' });
+    }
+  };
+
+  const renderEditableCell = (item, field) => {
+    const isEditing = inlineEdit.id === item.id && inlineEdit.field === field;
+    if (isEditing) {
+      return (
+        <input
+          className="inline-edit-input"
+          autoFocus
+          value={inlineEdit.value}
+          onChange={(e) => setInlineEdit({ ...inlineEdit, value: e.target.value })}
+          onBlur={handleInlineSave}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') handleInlineSave();
+            if (e.key === 'Escape') setInlineEdit({ id: null, field: null, value: '' });
+          }}
+        />
+      );
+    }
+    return (
+      <div 
+        className={isAdmin() ? "editable-cell" : ""} 
+        onDoubleClick={() => handleDoubleClick(item, field)}
+        title={isAdmin() ? "Double-click to edit" : ""}
+      >
+        {item[field] || '—'}
+      </div>
+    );
+  };
+
   const getStatusInfo = (status) => {
     const map = {
       'Active': { class: 'st-active', color: '#10b981' },
@@ -480,6 +571,31 @@ const InventoryTable = ({
           </div>
         </div>
         <div className="inv-header-actions-3d">
+          <div style={{ position: 'relative' }} ref={colMenuRef}>
+            <button className="import-btn-3d" onClick={() => setShowColMenu(!showColMenu)} style={{ background: 'var(--bg-1)', color: 'var(--text-1)', padding: '0 16px' }}>
+               <span>VIEW</span>
+            </button>
+            {showColMenu && (
+              <div style={{ position: 'absolute', top: '100%', right: 0, marginTop: '8px', background: 'var(--bg-0)', border: '1px solid var(--border-0)', borderRadius: '8px', padding: '12px', zIndex: 100, boxShadow: 'var(--shadow-md)', minWidth: '180px' }}>
+                <h4 style={{ margin: '0 0 10px 0', fontSize: '11px', color: 'var(--text-3)', letterSpacing: '1px' }}>TOGGLE COLUMNS</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  {allColumns.map(col => (
+                    <label key={col.id} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', cursor: 'pointer', color: 'var(--text-0)', userSelect: 'none' }}>
+                      <input 
+                        type="checkbox" 
+                        style={{ accentColor: 'var(--accent)', width: '16px', height: '16px' }}
+                        checked={visibleCols.includes(col.id)} 
+                        onChange={() => {
+                          setVisibleCols(prev => prev.includes(col.id) ? prev.filter(c => c !== col.id) : [...prev, col.id]);
+                        }}
+                      />
+                      {col.label}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
           {isAdmin() && (
             <button className="import-btn-3d" onClick={() => setShowLaptopImport(true)}>
               <FiPlus /> <span>IMPORT</span>
@@ -635,27 +751,27 @@ const InventoryTable = ({
                   />
                 </th>
               )}
-              <th className="sortable" onClick={() => handleSort('assetTag')}>
+              {visibleCols.includes('assetTag') && <th className="sortable" onClick={() => handleSort('assetTag')}>
                 ASSET TAG {getSortIcon('assetTag')}
-              </th>
-              <th className="sortable" onClick={() => handleSort('deviceName')}>
+              </th>}
+              {visibleCols.includes('deviceName') && <th className="sortable" onClick={() => handleSort('deviceName')}>
                 DEVICE {getSortIcon('deviceName')}
-              </th>
-              <th className="sortable" onClick={() => handleSort('category')}>
+              </th>}
+              {visibleCols.includes('category') && <th className="sortable" onClick={() => handleSort('category')}>
                 CATEGORY {getSortIcon('category')}
-              </th>
-              <th className="sortable" onClick={() => handleSort('manufacturer')}>
+              </th>}
+              {visibleCols.includes('manufacturer') && <th className="sortable" onClick={() => handleSort('manufacturer')}>
                 MANUFACTURER {getSortIcon('manufacturer')}
-              </th>
-              <th className="sortable" onClick={() => handleSort('status')}>
+              </th>}
+              {visibleCols.includes('status') && <th className="sortable" onClick={() => handleSort('status')}>
                 STATUS {getSortIcon('status')}
-              </th>
-              <th className="sortable" onClick={() => handleSort('assignedTo')}>
+              </th>}
+              {visibleCols.includes('assignedTo') && <th className="sortable" onClick={() => handleSort('assignedTo')}>
                 ASSIGNED TO {getSortIcon('assignedTo')}
-              </th>
-              <th className="sortable" onClick={() => handleSort('department')}>
+              </th>}
+              {visibleCols.includes('department') && <th className="sortable" onClick={() => handleSort('department')}>
                 DEPARTMENT {getSortIcon('department')}
-              </th>
+              </th>}
               {isAdmin() && <th className="non-sortable">ACTIONS</th>}
             </tr>
           </thead>
@@ -685,7 +801,7 @@ const InventoryTable = ({
                         />
                       </td>
                     )}
-                    <td>
+                    {visibleCols.includes('assetTag') && <td>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <span className="tag-3d">{item.assetTag}</span>
                         {Number(item.quantity) > 1 && (
@@ -694,9 +810,9 @@ const InventoryTable = ({
                           </span>
                         )}
                       </div>
-                    </td>
-                    <td className="device-3d">{item.deviceName}</td>
-                    <td>
+                    </td>}
+                    {visibleCols.includes('deviceName') && <td className="device-3d">{renderEditableCell(item, 'deviceName')}</td>}
+                    {visibleCols.includes('category') && <td>
                       {item.category ? (
                         <button
                           type="button"
@@ -707,19 +823,31 @@ const InventoryTable = ({
                           {item.category}
                         </button>
                       ) : '—'}
-                    </td>
-                    <td>{item.manufacturer}</td>
-                    <td>
-                      <span className={`status-badge-3d ${si.class}`}>
+                    </td>}
+                    {visibleCols.includes('manufacturer') && <td>{renderEditableCell(item, 'manufacturer')}</td>}
+                    {visibleCols.includes('status') && <td>
+                      <span className={`status-badge-3d ${si.class}`} onDoubleClick={() => {
+                        if(isAdmin()) {
+                          const newStatus = window.prompt('Enter new status (Active, Maintenance, Retired, In Storage):', item.status);
+                          if(newStatus && ['Active', 'Maintenance', 'Retired', 'In Storage'].includes(newStatus)) {
+                            axios.put(`${API_URL}/inventory/${item.id}`, { status: newStatus }).then(() => {
+                              toast.success('Status updated'); fetchInventory(); if(onUpdate) onUpdate();
+                            });
+                          }
+                        }
+                      }} title={isAdmin() ? "Double-click to quick edit status" : ""}>
                         <span className="badge-dot" style={{ background: si.color }}></span>
                         {item.status}
                       </span>
-                    </td>
-                    <td>{item.assignedTo}</td>
-                    <td>{item.department}</td>
+                    </td>}
+                    {visibleCols.includes('assignedTo') && <td>{renderEditableCell(item, 'assignedTo')}</td>}
+                    {visibleCols.includes('department') && <td>{renderEditableCell(item, 'department')}</td>}
                     {isAdmin() && (
                       <td>
                         <div className="actions-3d">
+                          <button className="act-btn-3d qr" onClick={() => setShowQR(item)} title="Generate QR Code" style={{ color: '#8b5cf6', background: '#f5f3ff' }}>
+                            <FaQrcode />
+                          </button>
                           <button className="act-btn-3d edit" onClick={() => handleEdit(item)} title="Modify">
                             <FiEdit2 />
                           </button>
@@ -919,6 +1047,47 @@ const InventoryTable = ({
                   <FiSave /> {importingLaptop ? 'IMPORTING...' : 'IMPORT'}
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* QR Code Modal */}
+      {showQR && (
+        <div className="modal-overlay-3d" onClick={() => setShowQR(null)}>
+          <div className="modal-3d" style={{ maxWidth: '400px', textAlign: 'center' }} onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header-3d" style={{ borderBottom: 'none' }}>
+              <div className="modal-title-group">
+                <div className="modal-icon-3d" style={{ background: '#f5f3ff', color: '#8b5cf6' }}><FaQrcode /></div>
+                <div>
+                  <h3>ASSET QR CODE</h3>
+                  <span className="modal-sub">{showQR.assetTag} - {showQR.deviceName}</span>
+                </div>
+              </div>
+              <button className="modal-close-3d" onClick={() => setShowQR(null)}><FiX /></button>
+            </div>
+            <div className="modal-body-3d" style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+              <div style={{ padding: '20px', background: '#fff', borderRadius: '12px', border: '1px solid #e5e7eb', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)' }}>
+                <img 
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(`siqol://asset/${showQR.id}`)}`} 
+                  alt="QR Code" 
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-2)', margin: 0 }}>Scan to view asset details directly.</p>
+              <button 
+                className="btn-primary full-width" 
+                style={{ padding: '12px', display: 'flex', justifyContent: 'center', gap: '8px', alignItems: 'center' }}
+                onClick={() => {
+                  const printWindow = window.open('', '_blank');
+                  printWindow.document.write(`<html><body style="display:flex;justify-content:center;align-items:center;height:100vh;margin:0;"><div style="text-align:center;font-family:sans-serif;"><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(`siqol://asset/${showQR.id}`)}" /><h2 style="margin-top:20px">${showQR.assetTag}</h2><p>${showQR.deviceName}</p></div></body></html>`);
+                  printWindow.document.close();
+                  printWindow.focus();
+                  setTimeout(() => { printWindow.print(); printWindow.close(); }, 500);
+                }}
+              >
+                <FiDownload /> PRINT QR LABEL
+              </button>
             </div>
           </div>
         </div>

@@ -17,11 +17,17 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem('siqol_theme', theme);
   }, [theme]);
 
+  const themes = ['light', 'dark', 'midnight', 'cyberpunk'];
+
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme(prev => {
+      const currentIndex = themes.indexOf(prev);
+      const nextIndex = (currentIndex + 1) % themes.length;
+      return themes[nextIndex];
+    });
   };
 
-  const isDark = theme === 'dark';
+  const isDark = theme !== 'light';
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme, isDark }}>

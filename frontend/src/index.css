@@ -95,9 +95,102 @@ body {
   --navbar-bg: rgba(255, 255, 255, 0.85);
 }
 
+/* ===== MIDNIGHT THEME ===== */
+[data-theme="midnight"] {
+  --bg-0: #0f172a;
+  --bg-1: #1e293b;
+  --bg-2: #334155;
+  --bg-3: #475569;
+  --bg-hover: #334155;
+  --bg-input: #1e293b;
+  
+  --text-0: #f8fafc;
+  --text-1: #cbd5e1;
+  --text-2: #94a3b8;
+  --text-3: #64748b;
+  
+  --border-0: #334155;
+  --border-1: #475569;
+  
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --accent-subtle: rgba(56, 189, 248, 0.1);
+  --accent-muted: rgba(56, 189, 248, 0.05);
+
+  --success: #34d399;
+  --success-subtle: rgba(52, 211, 153, 0.1);
+  --warning: #fbbf24;
+  --warning-subtle: rgba(251, 191, 36, 0.1);
+  --danger: #f87171;
+  --danger-subtle: rgba(248, 113, 113, 0.1);
+  --info: #818cf8;
+  --info-subtle: rgba(129, 140, 248, 0.1);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+
+  --sidebar-bg: #0f172a;
+  --sidebar-hover: #1e293b;
+  --sidebar-active: rgba(56, 189, 248, 0.1);
+  --navbar-bg: rgba(15, 23, 42, 0.8);
+}
+
+/* ===== CYBERPUNK THEME ===== */
+[data-theme="cyberpunk"] {
+  --bg-0: #09090b;
+  --bg-1: #18181b;
+  --bg-2: #27272a;
+  --bg-3: #3f3f46;
+  --bg-hover: #27272a;
+  --bg-input: #18181b;
+
+  --text-0: #fdf5ff;
+  --text-1: #e9d5ff;
+  --text-2: #c084fc;
+  --text-3: #a855f7;
+
+  --border-0: #c084fc;
+  --border-1: #d8b4fe;
+
+  --accent: #f0abfc;
+  --accent-hover: #e879f9;
+  --accent-subtle: rgba(240, 171, 252, 0.15);
+  --accent-muted: rgba(240, 171, 252, 0.05);
+
+  --success: #22d3ee;
+  --success-subtle: rgba(34, 211, 238, 0.1);
+  --warning: #fde047;
+  --warning-subtle: rgba(253, 224, 71, 0.1);
+  --danger: #f43f5e;
+  --danger-subtle: rgba(244, 63, 94, 0.1);
+  --info: #8b5cf6;
+  --info-subtle: rgba(139, 92, 246, 0.1);
+
+  --shadow-sm: 0 0 5px rgba(240, 171, 252, 0.2);
+  --shadow-md: 0 0 15px rgba(240, 171, 252, 0.3);
+  --shadow-lg: 0 0 25px rgba(240, 171, 252, 0.4);
+
+  --sidebar-bg: #09090b;
+  --sidebar-hover: #18181b;
+  --sidebar-active: rgba(240, 171, 252, 0.15);
+  --navbar-bg: rgba(9, 9, 11, 0.85);
+}
+
 body {
   background: var(--bg-1);
   color: var(--text-0);
+  background-image: 
+    radial-gradient(at 0% 0%, var(--accent-subtle) 0px, transparent 50%), 
+    radial-gradient(at 100% 100%, var(--info-subtle) 0px, transparent 50%);
+  background-attachment: fixed;
+  background-size: 200% 200%;
+  animation: mesh-movement 15s ease infinite alternate;
+}
+
+@keyframes mesh-movement {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
 ::-webkit-scrollbar { width: 6px; }

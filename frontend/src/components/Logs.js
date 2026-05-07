@@ -1,8 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { FiFileText, FiClock, FiUser, FiActivity } from 'react-icons/fi';
+import { FiFileText, FiClock, FiUser, FiActivity, FiTrash2, FiPlus, FiEdit2, FiDownload, FiUpload } from 'react-icons/fi';
 import './Logs.css';
+
+const getLogStyling = (action) => {
+  if (!action) return { icon: <FiActivity />, colorClass: 'default' };
+  const act = action.toLowerCase();
+  if (act.includes('delete') || act.includes('remove') || act.includes('revoke')) {
+    return { icon: <FiTrash2 />, colorClass: 'danger' };
+  }
+  if (act.includes('create') || act.includes('add') || act.includes('grant')) {
+    return { icon: <FiPlus />, colorClass: 'success' };
+  }
+  if (act.includes('update') || act.includes('edit')) {
+    return { icon: <FiEdit2 />, colorClass: 'warning' };
+  }
+  if (act.includes('export') || act.includes('download')) {
+    return { icon: <FiDownload />, colorClass: 'accent' };
+  }
+  if (act.includes('import') || act.includes('upload')) {
+    return { icon: <FiUpload />, colorClass: 'accent' };
+  }
+  return { icon: <FiActivity />, colorClass: 'default' };
+};
 
 const API_URL = 'https://siqol-backend.onrender.com/api';
 
@@ -46,23 +67,26 @@ const Logs = () => {
             <p>NO LOGS FOUND</p>
           </div>
         ) : (
-          logs.map(log => (
-            <div key={log.id} className="log-item">
-              <div className="log-action-icon">
-                <FiActivity />
-              </div>
-              <div className="log-content">
-                <div className="log-title">
-                  <span className="log-action">{log.action}</span>
-                  <span className="log-time"><FiClock /> {new Date(log.timestamp).toLocaleString()}</span>
+          logs.map((log, idx) => {
+            const { icon, colorClass } = getLogStyling(log.action);
+            return (
+              <div key={log.id} className={`log-item ${colorClass}`} style={{ animationDelay: `${idx * 0.05}s` }}>
+                <div className={`log-action-icon ${colorClass}`}>
+                  {icon}
                 </div>
-                <div className="log-desc">{log.details}</div>
-                <div className="log-user">
-                  <FiUser /> {log.user}
+                <div className="log-content">
+                  <div className="log-title">
+                    <span className="log-action">{log.action}</span>
+                    <span className="log-time"><FiClock /> {new Date(log.timestamp).toLocaleString()}</span>
+                  </div>
+                  <div className="log-desc">{log.details}</div>
+                  <div className="log-user">
+                    <FiUser /> {log.user}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))
+            );
+          })
         )}
       </div>
     </div>

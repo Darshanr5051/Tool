@@ -12,6 +12,7 @@
     "concurrently": "^8.2.2"
   },
   "dependencies": {
-    "react-countup": "^6.5.3"
+    "react-countup": "^6.5.3",
+    "recharts": "^3.8.1"
   }
 }
