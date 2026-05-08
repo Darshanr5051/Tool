@@ -528,7 +528,16 @@ const InventoryTable = ({
     }
   }, [filtered, onExportFiltered]);
 
-  const categories = [...new Set(inventory.map(i => i.category).filter(Boolean))];
+  const uniqueCategoriesMap = new Map();
+  inventory.forEach(i => {
+    if (i.category) {
+      const normalized = norm(i.category);
+      if (!uniqueCategoriesMap.has(normalized)) {
+        uniqueCategoriesMap.set(normalized, i.category.trim());
+      }
+    }
+  });
+  const categories = Array.from(uniqueCategoriesMap.values());
   const statuses = [...new Set(inventory.map(i => i.status).filter(Boolean))];
   const categoryCounts = inventory.reduce((acc, item) => {
     const key = norm(item.category);
