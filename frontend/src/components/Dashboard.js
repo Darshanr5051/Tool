@@ -249,7 +249,7 @@ const Dashboard = () => {
       setLoadingStats(true);
       const [statsRes, logsRes] = await Promise.all([
         axios.get(`${API_URL}/inventory/stats`),
-        axios.get(`${API_URL}/logs`)
+        axios.get(`${API_URL}/logs`).catch(() => ({ data: [] }))
       ]);
       setStats(statsRes.data);
       setLogs(logsRes.data.slice(0, 5)); // Keep only 5 recent logs for the dashboard
