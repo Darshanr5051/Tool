@@ -554,6 +554,11 @@ const InventoryTable = ({
     return String(a).localeCompare(String(b), undefined, { sensitivity: 'base' });
   });
 
+  const uniqueDeviceNames = [...new Set(inventory.map(i => i.deviceName).filter(Boolean))];
+  const uniqueManufacturers = [...new Set(inventory.map(i => i.manufacturer).filter(Boolean))];
+  const uniqueModels = [...new Set(inventory.map(i => i.model).filter(Boolean))];
+  const uniqueAssetTags = [...new Set(inventory.map(i => i.assetTag).filter(Boolean))];
+
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
   const paginatedItems = filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
   const pageStart = filtered.length === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
@@ -648,6 +653,7 @@ const InventoryTable = ({
             type="text"
             placeholder="Search assets..."
             value={searchTerm}
+            list="search-suggestions"
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input-3d"
           />
@@ -930,11 +936,11 @@ const InventoryTable = ({
             <form onSubmit={handleSubmit} className="modal-form-3d">
               <div className="form-grid-3d">
                 {[
-                  { key: 'assetTag', label: 'ASSET TAG', required: true },
-                  { key: 'deviceName', label: 'DEVICE NAME', required: true },
-                  { key: 'category', label: 'CATEGORY' },
-                  { key: 'manufacturer', label: 'MANUFACTURER' },
-                  { key: 'model', label: 'MODEL' },
+                  { key: 'assetTag', label: 'ASSET TAG', required: true, list: 'assetTags-list' },
+                  { key: 'deviceName', label: 'DEVICE NAME', required: true, list: 'deviceNames-list' },
+                  { key: 'category', label: 'CATEGORY', list: 'categories-list' },
+                  { key: 'manufacturer', label: 'MANUFACTURER', list: 'manufacturers-list' },
+                  { key: 'model', label: 'MODEL', list: 'models-list' },
                   { key: 'quantity', label: 'QUANTITY', type: 'number' },
                 ].map(f => (
                   <div key={f.key} className="field-3d">
@@ -942,6 +948,7 @@ const InventoryTable = ({
                     <input
                       type={f.type || 'text'}
                       value={formData[f.key]}
+                      list={f.list}
                       onChange={(e) => setFormData((prev) => ({ ...prev, [f.key]: e.target.value }))}
                       required={f.required}
                     />
@@ -1101,6 +1108,26 @@ const InventoryTable = ({
           </div>
         </div>
       )}
+      {/* Datalists for Autocomplete */}
+      <datalist id="search-suggestions">
+        {[...new Set([...uniqueDeviceNames, ...uniqueAssetTags])].map(s => <option key={s} value={s} />)}
+      </datalist>
+      <datalist id="assetTags-list">
+        {uniqueAssetTags.map(t => <option key={t} value={t} />)}
+      </datalist>
+      <datalist id="deviceNames-list">
+        {uniqueDeviceNames.map(d => <option key={d} value={d} />)}
+      </datalist>
+      <datalist id="categories-list">
+        {categories.map(c => <option key={c} value={c} />)}
+      </datalist>
+      <datalist id="manufacturers-list">
+        {uniqueManufacturers.map(m => <option key={m} value={m} />)}
+      </datalist>
+      <datalist id="models-list">
+        {uniqueModels.map(m => <option key={m} value={m} />)}
+      </datalist>
+
     </div>
   );
 };

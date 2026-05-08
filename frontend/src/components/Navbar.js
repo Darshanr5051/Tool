@@ -16,6 +16,21 @@ const Navbar = ({ onToggleSidebar, onGlobalSearch, onNavigate }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const notifRef = useRef(null);
 
+  // Search Suggestions State
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
+
+  // Fetch suggestions
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/inventory`);
+        const unique = [...new Set(res.data.flatMap(i => [i.deviceName, i.assetTag]).filter(Boolean))];
+        setSearchSuggestions(unique);
+      } catch (err) {}
+    };
+    fetchSuggestions();
+  }, []);
+
   // Fetch notifications
   useEffect(() => {
     const fetchNotifications = async () => {
@@ -68,10 +83,14 @@ const Navbar = ({ onToggleSidebar, onGlobalSearch, onNavigate }) => {
           className="nav-search-input"
           type="text"
           value={query}
+          list="global-search-suggestions"
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search assets..."
           disabled={!onGlobalSearch}
         />
+        <datalist id="global-search-suggestions">
+          {searchSuggestions.map(s => <option key={s} value={s} />)}
+        </datalist>
         {query ? (
           <button type="button" className="nav-search-clear" onClick={() => setQuery('')} aria-label="Clear search">
             <FiX />
