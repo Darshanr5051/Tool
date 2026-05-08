@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useAuth } from '../context/AuthContext';
 import { FiCheck, FiX, FiClipboard, FiClock, FiUser, FiTag, FiFolder, FiMessageSquare } from 'react-icons/fi';
 import './Requests.css';
 
 const API_URL = 'https://siqol-backend.onrender.com/api';
 
 const Requests = () => {
+  const { isAdmin } = useAuth();
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -45,8 +47,8 @@ const Requests = () => {
       <div className="req-header-3d">
         <FiClipboard className="req-icon" />
         <div>
-          <h2>Asset Requests</h2>
-          <p>Manage asset addition requests from non-admin users</p>
+          <h2>{isAdmin() ? 'Asset Requests' : 'My Asset Requests'}</h2>
+          <p>{isAdmin() ? 'Manage asset addition requests from non-admin users' : 'Track the status of your asset requests'}</p>
         </div>
       </div>
 
@@ -95,7 +97,7 @@ const Requests = () => {
                   </div>
                 </div>
               </div>
-              {req.status === 'Pending' && (
+              {req.status === 'Pending' && isAdmin() && (
                 <div className="req-actions">
                   <button className="btn-approve" onClick={() => handleAction(req.id, 'Approved')}>
                     <FiCheck /> Approve

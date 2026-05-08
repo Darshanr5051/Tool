@@ -12,26 +12,29 @@ const Navbar = ({ onToggleSidebar, onGlobalSearch, onNavigate }) => {
   const [query, setQuery] = useState('');
   
   // Notifications State
-  const [pendingRequests, setPendingRequests] = useState([]);
+  const [notifications, setNotifications] = useState([]);
   const [showNotifications, setShowNotifications] = useState(false);
   const notifRef = useRef(null);
 
   // Fetch notifications
   useEffect(() => {
-    if (!isAdmin || !isAdmin()) return;
-
-    const fetchPending = async () => {
+    const fetchNotifications = async () => {
       try {
         const res = await axios.get(`${API_URL}/requests`);
-        const pending = res.data.filter(r => r.status === 'Pending').reverse();
-        setPendingRequests(pending);
+        if (isAdmin && isAdmin()) {
+          const pending = res.data.filter(r => r.status === 'Pending').reverse();
+          setNotifications(pending);
+        } else {
+          const resolved = res.data.filter(r => r.status === 'Approved' || r.status === 'Rejected').reverse();
+          setNotifications(resolved);
+        }
       } catch (err) {
         // silently fail for background poll
       }
     };
 
-    fetchPending(); // Initial fetch
-    const interval = setInterval(fetchPending, 30000); // Poll every 30 seconds
+    fetchNotifications(); // Initial fetch
+    const interval = setInterval(fetchNotifications, 30000); // Poll every 30 seconds
     return () => clearInterval(interval);
   }, [isAdmin]);
 
@@ -76,7 +79,6 @@ const Navbar = ({ onToggleSidebar, onGlobalSearch, onNavigate }) => {
         ) : null}
       </form>
       <div className="nav-right">
-        {isAdmin && isAdmin() && (
           <div className="nav-notifications" ref={notifRef}>
             <button 
               className="nav-bell-btn" 
@@ -84,9 +86,9 @@ const Navbar = ({ onToggleSidebar, onGlobalSearch, onNavigate }) => {
               aria-label="Notifications"
             >
               <FiBell />
-              {pendingRequests.length > 0 && (
+              {notifications.length > 0 && (
                 <span className="notif-badge">
-                  {pendingRequests.length > 9 ? '9+' : pendingRequests.length}
+                  {notifications.length > 9 ? '9+' : notifications.length}
                 </span>
               )}
             </button>
@@ -94,14 +96,14 @@ const Navbar = ({ onToggleSidebar, onGlobalSearch, onNavigate }) => {
             {showNotifications && (
               <div className="notif-dropdown">
                 <div className="notif-header">
-                  <h4>Pending Requests</h4>
-                  <span className="notif-count">{pendingRequests.length} New</span>
+                  <h4>{isAdmin && isAdmin() ? 'Pending Requests' : 'Request Updates'}</h4>
+                  <span className="notif-count">{notifications.length} New</span>
                 </div>
                 <div className="notif-body">
-                  {pendingRequests.length === 0 ? (
-                    <div className="notif-empty">No pending requests</div>
+                  {notifications.length === 0 ? (
+                    <div className="notif-empty">No new notifications</div>
                   ) : (
-                    pendingRequests.slice(0, 5).map(req => (
+                    notifications.slice(0, 5).map(req => (
                       <div 
                         key={req.id} 
                         className="notif-item"
@@ -114,14 +116,20 @@ const Navbar = ({ onToggleSidebar, onGlobalSearch, onNavigate }) => {
                           {req.user ? req.user.charAt(0).toUpperCase() : 'U'}
                         </div>
                         <div className="notif-content">
-                          <div className="notif-title"><strong>{req.user}</strong> requested {req.itemData.deviceName || 'a device'}</div>
+                          <div className="notif-title">
+                            {isAdmin && isAdmin() ? (
+                              <><strong>{req.user}</strong> requested {req.itemData.deviceName || 'a device'}</>
+                            ) : (
+                              <>Your request for <strong>{req.itemData.deviceName || 'a device'}</strong> was {req.status}</>
+                            )}
+                          </div>
                           <div className="notif-time">{new Date(req.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
                         </div>
                       </div>
                     ))
                   )}
                 </div>
-                {pendingRequests.length > 5 && (
+                {notifications.length > 5 && (
                   <div className="notif-footer" onClick={() => { setShowNotifications(false); if(onNavigate) onNavigate('requests'); }}>
                     View all requests
                   </div>
@@ -129,7 +137,6 @@ const Navbar = ({ onToggleSidebar, onGlobalSearch, onNavigate }) => {
               </div>
             )}
           </div>
-        )}
 
         <ThemeToggle />
         <div className="nav-user">

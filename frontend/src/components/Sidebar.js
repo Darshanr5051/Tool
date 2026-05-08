@@ -13,7 +13,7 @@ const Sidebar = ({ activeTab, setActiveTab, isOpen, onClose, isCollapsed, onTogg
   const menuItems = [
     { id: 'overview', label: 'Overview', icon: FiHome },
     { id: 'inventory', label: 'Inventory', icon: FiMonitor },
-    { id: 'requests', label: 'Requests', icon: FiClipboard, adminOnly: true },
+    { id: 'requests', label: 'Requests', icon: FiClipboard },
     { id: 'logs', label: 'Logs', icon: FiFileText, adminOnly: true },
     { id: 'users', label: 'Users', icon: FiUsers, adminOnly: true },
     { id: 'settings', label: 'Settings', icon: FiSettings },

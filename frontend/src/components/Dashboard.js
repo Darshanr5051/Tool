@@ -525,7 +525,7 @@ const Dashboard = () => {
       case 'users':
         return isAdmin() ? <UserManagement /> : null;
       case 'requests':
-        return isAdmin() ? <Requests /> : null;
+        return <Requests />;
       case 'logs':
         return isAdmin() ? <Logs /> : null;
       case 'settings':

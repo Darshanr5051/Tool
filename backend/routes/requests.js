@@ -31,12 +31,17 @@ const saveInventory = (inventory) => {
 };
 
 // @route   GET /api/requests
-// @desc    Get all requests
-// @access  Private/Admin
-router.get('/', auth, auth.adminOnly, (req, res) => {
+// @desc    Get all requests (Admin gets all, User gets own)
+// @access  Private
+router.get('/', auth, (req, res) => {
   try {
     const requests = getRequests();
-    res.json(requests);
+    if (req.user.role === 'admin') {
+      res.json(requests);
+    } else {
+      const userRequests = requests.filter(r => r.userId === req.user.id || r.user === req.user.username);
+      res.json(userRequests);
+    }
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
   }
