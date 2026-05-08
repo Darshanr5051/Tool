@@ -1045,6 +1045,7 @@ const InventoryTable = ({
                 <input
                   type="text"
                   value={laptopImportCategory}
+                  list="categories-list"
                   onChange={(e) => setLaptopImportCategory(e.target.value)}
                   placeholder="e.g., Laptop"
                 />
@@ -1059,7 +1060,7 @@ const InventoryTable = ({
               </div>
               <div className="modal-actions-3d">
                 <button type="button" className="cancel-3d" onClick={() => !importingLaptop && setShowLaptopImport(false)} disabled={importingLaptop}>CANCEL</button>
-                <button type="button" className="save-3d" onClick={handleLaptopImport} disabled={importingLaptop}>
+                <button type="button" className="save-3d" onClick={handleLaptopImport} disabled={importingLaptop || !laptopImportText.trim()}>
                   <FiSave /> {importingLaptop ? 'IMPORTING...' : 'IMPORT'}
                 </button>
               </div>
